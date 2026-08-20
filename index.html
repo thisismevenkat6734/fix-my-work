@@ -25,44 +25,47 @@
 
     .container {
       width: 100%;
-      max-width: 420px;
+      max-width: 430px;
       background: white;
       padding: 30px 25px;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+      border-radius: 22px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.10);
     }
 
     .logo {
       text-align: center;
-      font-size: 42px;
+      font-size: 45px;
       margin-bottom: 10px;
     }
 
     h1 {
       text-align: center;
+      font-size: 32px;
       color: #222;
-      margin-bottom: 8px;
     }
 
     .subtitle {
       text-align: center;
       color: #777;
+      font-size: 18px;
+      margin-top: 8px;
       margin-bottom: 30px;
     }
 
     label {
       display: block;
-      margin-bottom: 8px;
       font-weight: bold;
+      font-size: 17px;
+      margin-bottom: 8px;
       color: #333;
     }
 
     input {
       width: 100%;
-      padding: 14px;
+      padding: 15px;
       border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 16px;
+      border-radius: 12px;
+      font-size: 17px;
       margin-bottom: 15px;
       outline: none;
     }
@@ -73,19 +76,20 @@
 
     button {
       width: 100%;
-      padding: 14px;
+      padding: 16px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       background: #4285f4;
       color: white;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 5px;
+      margin-top: 8px;
     }
 
-    button:hover {
-      background: #3367d6;
+    button:disabled {
+      background: #aaa;
+      cursor: not-allowed;
     }
 
     #otpSection {
@@ -93,25 +97,31 @@
       margin-top: 20px;
     }
 
+    #recaptcha-container {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      min-height: 78px;
+    }
+
     #message {
       margin-top: 18px;
       text-align: center;
-      font-size: 14px;
-      color: #555;
-    }
-
-    #recaptcha-container {
-      margin-top: 15px;
-      display: flex;
-      justify-content: center;
+      font-size: 15px;
+      line-height: 1.5;
+      word-break: break-word;
     }
 
     .success {
-      color: green !important;
+      color: green;
     }
 
     .error {
-      color: red !important;
+      color: red;
+    }
+
+    .info {
+      color: #555;
     }
   </style>
 </head>
@@ -128,7 +138,8 @@
       Local Service Marketplace
     </p>
 
-    <!-- Phone Login -->
+    <!-- PHONE LOGIN -->
+
     <div id="loginSection">
 
       <label for="phone">
@@ -138,7 +149,8 @@
       <input
         type="tel"
         id="phone"
-        placeholder="+91XXXXXXXXXX"
+        placeholder="8985285902"
+        maxlength="10"
       >
 
       <div id="recaptcha-container"></div>
@@ -150,7 +162,8 @@
     </div>
 
 
-    <!-- OTP -->
+    <!-- OTP SECTION -->
+
     <div id="otpSection">
 
       <label for="otp">
@@ -162,6 +175,7 @@
         id="otp"
         placeholder="Enter 6 digit OTP"
         maxlength="6"
+        inputmode="numeric"
       >
 
       <button id="verifyOtpBtn">
@@ -170,17 +184,54 @@
 
     </div>
 
-    <p id="message"></p>
+
+    <p id="message" class="info"></p>
 
   </div>
 
 
-  <!-- Firebase Authentication -->
   <script type="module">
 
-    import { auth } from "./js/firebase.js";
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
     import {
+      getAuth,
       RecaptchaVerifier,
       signInWithPhoneNumber
-    } from "https
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+    // FIREBASE CONFIG
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCP8DGLQMXPUsv_p2zQ-NLkziwPQe1XkgU",
+      authDomain: "fixmywork-d83ba.firebaseapp.com",
+      projectId: "fixmywork-d83ba",
+      storageBucket: "fixmywork-d83ba.firebasestorage.app",
+      messagingSenderId: "207313302232",
+      appId: "1:207313302232:web:73055348982ad84abeddad",
+      measurementId: "G-11FQMLCBQY"
+    };
+
+
+    // INITIALIZE FIREBASE
+
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+
+    // ELEMENTS
+
+    const phoneInput =
+      document.getElementById("phone");
+
+    const otpInput =
+      document.getElementById("otp");
+
+    const sendOtpBtn =
+      document.getElementById("sendOtpBtn");
+
+    const verifyOtpBtn =

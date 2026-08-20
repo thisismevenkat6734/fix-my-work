@@ -1,237 +1,1765 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Fix My Work</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      background: #f5f7fb;
+      background: #f4f7fb;
+      color: #222;
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* =========================
+       LOGIN
+    ========================= */
+
+    #loginPage {
       min-height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       padding: 20px;
     }
 
-    .container {
+    .login-card {
       width: 100%;
       max-width: 430px;
       background: white;
-      padding: 30px 25px;
-      border-radius: 22px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.10);
+      border-radius: 24px;
+      padding: 30px 24px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.10);
     }
 
     .logo {
       text-align: center;
-      font-size: 45px;
+      font-size: 48px;
       margin-bottom: 10px;
     }
 
-    h1 {
+    .brand {
       text-align: center;
-      font-size: 32px;
-      color: #222;
+      font-size: 31px;
+      font-weight: 800;
+      color: #202124;
     }
 
-    .subtitle {
+    .tagline {
       text-align: center;
       color: #777;
-      font-size: 18px;
       margin-top: 8px;
       margin-bottom: 30px;
+      font-size: 16px;
     }
 
-    label {
+    .field-label {
       display: block;
-      font-weight: bold;
-      font-size: 17px;
+      font-size: 15px;
+      font-weight: 700;
       margin-bottom: 8px;
-      color: #333;
     }
 
-    input {
+    .input {
       width: 100%;
-      padding: 15px;
-      border: 1px solid #ddd;
+      border: 1px solid #d9dce1;
       border-radius: 12px;
-      font-size: 17px;
-      margin-bottom: 15px;
+      padding: 15px;
       outline: none;
+      background: white;
+      font-size: 17px;
     }
 
-    input:focus {
+    .input:focus {
       border-color: #4285f4;
     }
 
-    button {
+    .primary-btn {
       width: 100%;
-      padding: 16px;
-      border: none;
+      border: 0;
       border-radius: 12px;
       background: #4285f4;
       color: white;
+      padding: 15px;
+      font-weight: 700;
       font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 8px;
+      margin-top: 15px;
     }
 
-    button:disabled {
-      background: #aaa;
+    .primary-btn:disabled {
+      opacity: 0.55;
       cursor: not-allowed;
     }
 
-    #otpSection {
-      display: none;
-      margin-top: 20px;
+    .secondary-btn {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background: white;
+      padding: 14px;
+      margin-top: 10px;
+      font-weight: 700;
     }
 
     #recaptcha-container {
-      margin: 15px 0;
+      margin-top: 18px;
+      min-height: 78px;
       display: flex;
       justify-content: center;
-      min-height: 78px;
+      overflow: hidden;
     }
 
-    #message {
-      margin-top: 18px;
+    .message {
+      margin-top: 15px;
       text-align: center;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.5;
       word-break: break-word;
     }
 
     .success {
-      color: green;
+      color: #188038;
     }
 
     .error {
-      color: red;
+      color: #d93025;
     }
 
     .info {
-      color: #555;
+      color: #666;
     }
+
+    /* =========================
+       APP
+    ========================= */
+
+    #appPage {
+      min-height: 100vh;
+    }
+
+    .topbar {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .topbar-inner {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-brand {
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .logout-btn {
+      border: 0;
+      background: #fff0f0;
+      color: #d93025;
+      padding: 9px 13px;
+      border-radius: 9px;
+      font-weight: 700;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 22px 16px 50px;
+    }
+
+    .welcome-card {
+      background: #4285f4;
+      color: white;
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 22px;
+    }
+
+    .welcome-card h2 {
+      font-size: 25px;
+      margin-bottom: 7px;
+    }
+
+    .welcome-card p {
+      opacity: 0.92;
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-size: 21px;
+      margin-bottom: 15px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .service {
+      background: white;
+      border: 1px solid #e6e8eb;
+      border-radius: 16px;
+      padding: 20px 12px;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .service:active {
+      transform: scale(0.98);
+    }
+
+    .service-icon {
+      font-size: 34px;
+      margin-bottom: 9px;
+    }
+
+    .service-name {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* REQUEST */
+
+    .request-card {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid #e6e8eb;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    textarea.input {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .location-box {
+      background: #f1f5ff;
+      border-radius: 12px;
+      padding: 13px;
+      font-size: 14px;
+      color: #445;
+      margin-bottom: 15px;
+    }
+
+    .request-btn {
+      width: 100%;
+      background: #111827;
+      color: white;
+      border: 0;
+      border-radius: 12px;
+      padding: 15px;
+      font-weight: 700;
+    }
+
+    .request-btn:disabled {
+      opacity: 0.5;
+    }
+
+    /* PROFILE */
+
+    .profile-card {
+      margin-top: 22px;
+      background: white;
+      border: 1px solid #e6e8eb;
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      gap: 15px;
+    }
+
+    .profile-row:last-child {
+      border-bottom: 0;
+    }
+
+    .profile-label {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .profile-value {
+      font-weight: 700;
+      text-align: right;
+      word-break: break-word;
+    }
+
+    @media (min-width: 650px) {
+
+      .services {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
-  <div class="container">
 
-    <div class="logo">🛠️</div>
+  <!-- =========================================
+       LOGIN PAGE
+  ========================================== -->
 
-    <h1>Fix My Work</h1>
+  <section id="loginPage">
 
-    <p class="subtitle">
-      Local Service Marketplace
-    </p>
+    <div class="login-card">
 
-    <!-- PHONE LOGIN -->
+      <div class="logo">
+        🛠️
+      </div>
 
-    <div id="loginSection">
+      <div class="brand">
+        Fix My Work
+      </div>
 
-      <label for="phone">
-        Mobile Number
-      </label>
+      <div class="tagline">
+        Local Service Marketplace
+      </div>
 
-      <input
-        type="tel"
-        id="phone"
-        placeholder="8985285902"
-        maxlength="10"
+
+      <!-- PHONE -->
+
+      <div id="phoneStep">
+
+        <label class="field-label">
+          Mobile Number
+        </label>
+
+        <input
+          id="phoneInput"
+          class="input"
+          type="tel"
+          inputmode="numeric"
+          maxlength="10"
+          placeholder="Enter 10-digit number"
+        >
+
+
+        <div id="recaptcha-container"></div>
+
+
+        <button
+          id="sendOtpBtn"
+          class="primary-btn"
+          type="button"
+        >
+          Send OTP
+        </button>
+
+      </div>
+
+
+      <!-- OTP -->
+
+      <div
+        id="otpStep"
+        class="hidden"
       >
 
-      <div id="recaptcha-container"></div>
+        <label class="field-label">
+          Enter OTP
+        </label>
 
-      <button id="sendOtpBtn">
-        Send OTP
-      </button>
+        <input
+          id="otpInput"
+          class="input"
+          type="text"
+          inputmode="numeric"
+          maxlength="6"
+          placeholder="Enter 6-digit OTP"
+        >
+
+
+        <button
+          id="verifyOtpBtn"
+          class="primary-btn"
+          type="button"
+        >
+          Verify OTP
+        </button>
+
+
+        <button
+          id="backBtn"
+          class="secondary-btn"
+          type="button"
+        >
+          Change Number
+        </button>
+
+      </div>
+
+
+      <div
+        id="loginMessage"
+        class="message info"
+      >
+        Loading...
+      </div>
 
     </div>
 
-
-    <!-- OTP SECTION -->
-
-    <div id="otpSection">
-
-      <label for="otp">
-        Enter OTP
-      </label>
-
-      <input
-        type="text"
-        id="otp"
-        placeholder="Enter 6 digit OTP"
-        maxlength="6"
-        inputmode="numeric"
-      >
-
-      <button id="verifyOtpBtn">
-        Verify OTP
-      </button>
-
-    </div>
+  </section>
 
 
-    <p id="message" class="info"></p>
 
-  </div>
+  <!-- =========================================
+       APP PAGE
+  ========================================== -->
 
+  <section
+    id="appPage"
+    class="hidden"
+  >
+
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+      <div class="topbar-inner">
+
+        <div class="top-brand">
+          🛠️ Fix My Work
+        </div>
+
+        <button
+          id="logoutBtn"
+          class="logout-btn"
+        >
+          Logout
+        </button>
+
+      </div>
+
+    </header>
+
+
+
+    <main class="content">
+
+
+      <!-- WELCOME -->
+
+      <div class="welcome-card">
+
+        <h2 id="welcomeName">
+          Welcome!
+        </h2>
+
+        <p>
+          Find trusted local service providers near you.
+        </p>
+
+      </div>
+
+
+
+      <!-- SERVICES -->
+
+      <h2 class="section-title">
+        What service do you need?
+      </h2>
+
+
+      <div class="services">
+
+
+        <div
+          class="service"
+          data-service="Electrician"
+        >
+          <div class="service-icon">
+            ⚡
+          </div>
+
+          <div class="service-name">
+            Electrician
+          </div>
+        </div>
+
+
+        <div
+          class="service"
+          data-service="Plumber"
+        >
+          <div class="service-icon">
+            🔧
+          </div>
+
+          <div class="service-name">
+            Plumber
+          </div>
+        </div>
+
+
+        <div
+          class="service"
+          data-service="AC Repair"
+        >
+          <div class="service-icon">
+            ❄️
+          </div>
+
+          <div class="service-name">
+            AC Repair
+          </div>
+        </div>
+
+
+        <div
+          class="service"
+          data-service="RO Repair"
+        >
+          <div class="service-icon">
+            💧
+          </div>
+
+          <div class="service-name">
+            RO Repair
+          </div>
+        </div>
+
+
+        <div
+          class="service"
+          data-service="Washing Machine"
+        >
+          <div class="service-icon">
+            🧺
+          </div>
+
+          <div class="service-name">
+            Washing Machine
+          </div>
+        </div>
+
+
+        <div
+          class="service"
+          data-service="Refrigerator"
+        >
+          <div class="service-icon">
+            🧊
+          </div>
+
+          <div class="service-name">
+            Refrigerator
+          </div>
+        </div>
+
+
+        <div
+          class="service"
+          data-service="TV Repair"
+        >
+          <div class="service-icon">
+            📺
+          </div>
+
+          <div class="service-name">
+            TV Repair
+          </div>
+        </div>
+
+
+        <div
+          class="service"
+          data-service="Other"
+        >
+          <div class="service-icon">
+            🛠️
+          </div>
+
+          <div class="service-name">
+            Other
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+      <!-- REQUEST -->
+
+      <h2 class="section-title">
+        Request a Service
+      </h2>
+
+
+      <div class="request-card">
+
+
+        <div class="form-group">
+
+          <label class="field-label">
+            Selected Service
+          </label>
+
+          <input
+            id="serviceInput"
+            class="input"
+            type="text"
+            placeholder="Select a service above"
+            readonly
+          >
+
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label class="field-label">
+            Problem Description
+          </label>
+
+          <textarea
+            id="descriptionInput"
+            class="input"
+            placeholder="Describe your problem..."
+          ></textarea>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label class="field-label">
+            Location
+          </label>
+
+          <div
+            id="locationStatus"
+            class="location-box"
+          >
+            Location not selected.
+          </div>
+
+          <button
+            id="locationBtn"
+            class="secondary-btn"
+            type="button"
+          >
+            📍 Get My Location
+          </button>
+
+        </div>
+
+
+
+        <button
+          id="requestBtn"
+          class="request-btn"
+          type="button"
+        >
+          Submit Service Request
+        </button>
+
+
+        <div
+          id="requestMessage"
+          class="message"
+        ></div>
+
+      </div>
+
+
+
+      <!-- PROFILE -->
+
+      <div class="profile-card">
+
+        <h2 class="section-title">
+          My Profile
+        </h2>
+
+
+        <div class="profile-row">
+
+          <div class="profile-label">
+            Mobile
+          </div>
+
+          <div
+            id="profilePhone"
+            class="profile-value"
+          >
+            -
+          </div>
+
+        </div>
+
+
+        <div class="profile-row">
+
+          <div class="profile-label">
+            User ID
+          </div>
+
+          <div
+            id="profileUid"
+            class="profile-value"
+          >
+            -
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </main>
+
+  </section>
+
+
+
+  <!-- =========================================
+       FIREBASE
+  ========================================== -->
 
   <script type="module">
 
     import {
       initializeApp
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    } from
+    "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
 
     import {
       getAuth,
       RecaptchaVerifier,
-      signInWithPhoneNumber
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      signInWithPhoneNumber,
+      onAuthStateChanged,
+      signOut
+    } from
+    "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
-    // FIREBASE CONFIG
+    import {
+      getFirestore,
+      doc,
+      setDoc,
+      serverTimestamp
+    } from
+    "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+
+    /* =========================================
+       FIREBASE CONFIG
+    ========================================== */
 
     const firebaseConfig = {
-      apiKey: "AIzaSyCP8DGLQMXPUsv_p2zQ-NLkziwPQe1XkgU",
-      authDomain: "fixmywork-d83ba.firebaseapp.com",
-      projectId: "fixmywork-d83ba",
-      storageBucket: "fixmywork-d83ba.firebasestorage.app",
-      messagingSenderId: "207313302232",
-      appId: "1:207313302232:web:73055348982ad84abeddad",
-      measurementId: "G-11FQMLCBQY"
+
+      apiKey:
+        "AIzaSyCP8DGLQMXPUsv_p2zQ-NLkziwPQe1XkgU",
+
+      authDomain:
+        "fixmywork-d83ba.firebaseapp.com",
+
+      projectId:
+        "fixmywork-d83ba",
+
+      storageBucket:
+        "fixmywork-d83ba.firebasestorage.app",
+
+      messagingSenderId:
+        "207313302232",
+
+      appId:
+        "1:207313302232:web:73055348982ad84abeddad",
+
+      measurementId:
+        "G-11FQMLCBQY"
+
     };
 
 
-    // INITIALIZE FIREBASE
 
-    const app = initializeApp(firebaseConfig);
+    /* =========================================
+       INITIALIZE
+    ========================================== */
 
-    const auth = getAuth(app);
+    const app =
+      initializeApp(firebaseConfig);
 
 
-    // ELEMENTS
+    const auth =
+      getAuth(app);
+
+
+    const db =
+      getFirestore(app);
+
+
+
+    /* =========================================
+       ELEMENTS
+    ========================================== */
+
+    const loginPage =
+      document.getElementById("loginPage");
+
+    const appPage =
+      document.getElementById("appPage");
+
+
+    const phoneStep =
+      document.getElementById("phoneStep");
+
+    const otpStep =
+      document.getElementById("otpStep");
+
 
     const phoneInput =
-      document.getElementById("phone");
+      document.getElementById("phoneInput");
 
     const otpInput =
-      document.getElementById("otp");
+      document.getElementById("otpInput");
+
 
     const sendOtpBtn =
       document.getElementById("sendOtpBtn");
 
     const verifyOtpBtn =
+      document.getElementById("verifyOtpBtn");
+
+    const backBtn =
+      document.getElementById("backBtn");
+
+
+    const loginMessage =
+      document.getElementById("loginMessage");
+
+
+    const welcomeName =
+      document.getElementById("welcomeName");
+
+
+    const logoutBtn =
+      document.getElementById("logoutBtn");
+
+
+    const serviceInput =
+      document.getElementById("serviceInput");
+
+
+    const descriptionInput =
+      document.getElementById("descriptionInput");
+
+
+    const locationBtn =
+      document.getElementById("locationBtn");
+
+
+    const locationStatus =
+      document.getElementById("locationStatus");
+
+
+    const requestBtn =
+      document.getElementById("requestBtn");
+
+
+    const requestMessage =
+      document.getElementById("requestMessage");
+
+
+    const profilePhone =
+      document.getElementById("profilePhone");
+
+
+    const profileUid =
+      document.getElementById("profileUid");
+
+
+
+    /* =========================================
+       VARIABLES
+    ========================================== */
+
+    let confirmationResult = null;
+
+    let recaptchaVerifier = null;
+
+    let selectedLatitude = null;
+
+    let selectedLongitude = null;
+
+
+
+    /* =========================================
+       MESSAGE
+    ========================================== */
+
+    function loginMsg(
+      text,
+      type = "info"
+    ) {
+
+      loginMessage.textContent = text;
+
+      loginMessage.className =
+        "message " + type;
+
+    }
+
+
+    function requestMsg(
+      text,
+      type = "info"
+    ) {
+
+      requestMessage.textContent = text;
+
+      requestMessage.className =
+        "message " + type;
+
+    }
+
+
+
+    /* =========================================
+       RECAPTCHA
+    ========================================== */
+
+    async function createRecaptcha() {
+
+      try {
+
+        if (recaptchaVerifier) {
+
+          try {
+
+            recaptchaVerifier.clear();
+
+          } catch (e) {}
+
+        }
+
+
+        document.getElementById(
+          "recaptcha-container"
+        ).innerHTML = "";
+
+
+        recaptchaVerifier =
+          new RecaptchaVerifier(
+            auth,
+            "recaptcha-container",
+            {
+
+              size: "normal",
+
+              callback: function() {
+
+                loginMsg(
+                  "✅ Verification complete. Now tap Send OTP.",
+                  "success"
+                );
+
+              },
+
+              "expired-callback":
+                function() {
+
+                  loginMsg(
+                    "reCAPTCHA expired. Please verify again.",
+                    "error"
+                  );
+
+                }
+
+            }
+          );
+
+
+        await recaptchaVerifier.render();
+
+
+        loginMsg(
+          "Please complete the verification above.",
+          "info"
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "RECAPTCHA ERROR:",
+          error
+        );
+
+
+        loginMsg(
+          "reCAPTCHA error: " +
+          error.message,
+          "error"
+        );
+
+      }
+
+    }
+
+
+
+    /* =========================================
+       SEND OTP
+    ========================================== */
+
+    sendOtpBtn.addEventListener(
+      "click",
+      async function() {
+
+
+        let phone =
+          phoneInput.value.trim();
+
+
+        /* ONLY DIGITS */
+
+        phone =
+          phone.replace(
+            /\D/g,
+            ""
+          );
+
+
+        if (phone.length !== 10) {
+
+          loginMsg(
+            "Enter a valid 10-digit Indian mobile number.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        const phoneNumber =
+          "+91" + phone;
+
+
+        sendOtpBtn.disabled = true;
+
+
+        loginMsg(
+          "Sending OTP...",
+          "info"
+        );
+
+
+        try {
+
+
+          if (!recaptchaVerifier) {
+
+            await createRecaptcha();
+
+          }
+
+
+          confirmationResult =
+            await signInWithPhoneNumber(
+              auth,
+              phoneNumber,
+              recaptchaVerifier
+            );
+
+
+          loginMsg(
+            "✅ OTP sent to " +
+            phoneNumber,
+            "success"
+          );
+
+
+          phoneStep.classList.add(
+            "hidden"
+          );
+
+
+          otpStep.classList.remove(
+            "hidden"
+          );
+
+
+          otpInput.focus();
+
+
+        } catch (error) {
+
+
+          console.error(
+            "SEND OTP ERROR:",
+            error
+          );
+
+
+          loginMsg(
+            "OTP failed: " +
+            error.code +
+            " — " +
+            error.message,
+            "error"
+          );
+
+
+          sendOtpBtn.disabled = false;
+
+
+          await createRecaptcha();
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================================
+       VERIFY OTP
+    ========================================== */
+
+    verifyOtpBtn.addEventListener(
+      "click",
+      async function() {
+
+
+        const code =
+          otpInput.value.trim();
+
+
+        if (code.length !== 6) {
+
+          loginMsg(
+            "Enter the 6-digit OTP.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        if (!confirmationResult) {
+
+          loginMsg(
+            "Please request OTP first.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        verifyOtpBtn.disabled = true;
+
+
+        loginMsg(
+          "Verifying OTP...",
+          "info"
+        );
+
+
+        try {
+
+
+          const result =
+            await confirmationResult.confirm(
+              code
+            );
+
+
+          const user =
+            result.user;
+
+
+          /* SAVE USER TO FIRESTORE */
+
+          await setDoc(
+            doc(
+              db,
+              "users",
+              user.uid
+            ),
+            {
+
+              uid:
+                user.uid,
+
+              phone:
+                user.phoneNumber || "",
+
+              createdAt:
+                serverTimestamp(),
+
+              lastLogin:
+                serverTimestamp()
+
+            },
+            {
+              merge: true
+            }
+          );
+
+
+          loginMsg(
+            "🎉 Login successful!",
+            "success"
+          );
+
+
+          showApp(
+            user
+          );
+
+
+        } catch (error) {
+
+
+          console.error(
+            "VERIFY OTP ERROR:",
+            error
+          );
+
+
+          loginMsg(
+            "OTP verification failed: " +
+            error.message,
+            "error"
+          );
+
+
+          verifyOtpBtn.disabled = false;
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================================
+       CHANGE NUMBER
+    ========================================== */
+
+    backBtn.addEventListener(
+      "click",
+      async function() {
+
+
+        otpStep.classList.add(
+          "hidden"
+        );
+
+
+        phoneStep.classList.remove(
+          "hidden"
+        );
+
+
+        otpInput.value = "";
+
+
+        confirmationResult = null;
+
+
+        verifyOtpBtn.disabled = false;
+
+
+        sendOtpBtn.disabled = false;
+
+
+        await createRecaptcha();
+
+      }
+    );
+
+
+
+    /* =========================================
+       SHOW APP
+    ========================================== */
+
+    function showApp(user) {
+
+
+      loginPage.classList.add(
+        "hidden"
+      );
+
+
+      appPage.classList.remove(
+        "hidden"
+      );
+
+
+      const phone =
+        user.phoneNumber || "User";
+
+
+      welcomeName.textContent =
+        "Welcome!";
+
+
+      profilePhone.textContent =
+        phone;
+
+
+      profileUid.textContent =
+        user.uid;
+
+
+      window.scrollTo(
+        0,
+        0
+      );
+
+    }
+
+
+
+    /* =========================================
+       SERVICE SELECTION
+    ========================================== */
+
+    document
+      .querySelectorAll(".service")
+      .forEach(
+        function(service) {
+
+          service.addEventListener(
+            "click",
+            function() {
+
+              const name =
+                service.dataset.service;
+
+
+              serviceInput.value =
+                name;
+
+
+              requestMsg(
+                name +
+                " selected.",
+                "success"
+              );
+
+
+              document
+                .querySelector(".request-card")
+                .scrollIntoView({
+                  behavior: "smooth"
+                });
+
+            }
+          );
+
+        }
+      );
+
+
+
+    /* =========================================
+       LOCATION
+    ========================================== */
+
+    locationBtn.addEventListener(
+      "click",
+      function() {
+
+
+        if (!navigator.geolocation) {
+
+          locationStatus.textContent =
+            "Location is not supported by this browser.";
+
+          return;
+
+        }
+
+
+        locationStatus.textContent =
+          "Getting your location...";
+
+
+        navigator.geolocation.getCurrentPosition(
+
+          function(position) {
+
+
+            selectedLatitude =
+              position.coords.latitude;
+
+
+            selectedLongitude =
+              position.coords.longitude;
+
+
+            locationStatus.textContent =
+              "📍 Location selected: " +
+              selectedLatitude.toFixed(6) +
+              ", " +
+              selectedLongitude.toFixed(6);
+
+
+            requestMsg(
+              "Location ready.",
+              "success"
+            );
+
+          },
+
+
+          function(error) {
+
+            console.error(
+              error
+            );
+
+
+            locationStatus.textContent =
+              "Unable to get location. Please allow location permission.";
+
+          },
+
+          {
+            enableHighAccuracy: true,
+            timeout: 15000,
+            maximumAge: 0
+          }
+
+        );
+
+      }
+    );
+
+
+
+    /* =========================================
+       SERVICE REQUEST
+    ========================================== */
+
+    requestBtn.addEventListener(
+      "click",
+      async function() {
+
+
+        const user =
+          auth.currentUser;
+
+
+        if (!user) {
+
+          requestMsg(
+            "Please login first.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        const service =
+          serviceInput.value.trim();
+
+
+        const description =
+          descriptionInput.value.trim();
+
+
+        if (!service) {
+
+          requestMsg(
+            "Please select a service.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        if (!description) {
+
+          requestMsg(
+            "Please describe your problem.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        requestBtn.disabled = true;
+
+
+        requestMsg(
+          "Submitting request...",
+          "info"
+        );
+
+
+        try {
+
+
+          const requestId =
+            crypto.randomUUID();
+
+
+          await setDoc(
+            doc(
+              db,
+              "serviceRequests",
+              requestId
+            ),
+            {
+
+              requestId:
+                requestId,
+
+              userId:
+                user.uid,
+
+              phone:
+                user.phoneNumber || "",
+
+              service:
+                service,
+
+              description:
+                description,
+
+              latitude:
+                selectedLatitude,
+
+              longitude:
+                selectedLongitude,
+
+              status:
+                "pending",
+
+              createdAt:
+                serverTimestamp()
+
+            }
+          );
+
+
+          requestMsg(
+            "✅ Service request submitted successfully!",
+            "success"
+          );
+
+
+          serviceInput.value = "";
+
+          descriptionInput.value = "";
+
+          selectedLatitude = null;
+
+          selectedLongitude = null;
+
+          locationStatus.textContent =
+            "Location not selected.";
+
+
+        } catch (error) {
+
+
+          console.error(
+            "REQUEST ERROR:",
+            error
+          );
+
+
+          requestMsg(
+            "Request failed: " +
+            error.message,
+            "error"
+          );
+
+        }
+
+
+        requestBtn.disabled = false;
+
+      }
+    );
+
+
+
+    /* =========================================
+       LOGOUT
+    ========================================== */
+
+    logoutBtn.addEventListener(
+      "click",
+      async function() {
+
+        try {
+
+          await signOut(
+            auth
+          );
+
+
+          appPage.classList.add(
+            "hidden"
+          );
+
+
+          loginPage.classList.remove(
+            "hidden"
+          );
+
+
+          phoneStep.classList.remove(
+            "hidden"
+          );
+
+
+          otpStep.classList.add(
+            "hidden"
+          );
+
+
+          phoneInput.value = "";
+
+          otpInput.value = "";
+
+
+          confirmationResult = null;
+
+
+          sendOtpBtn.disabled = false;
+
+          verifyOtpBtn.disabled = false;
+
+
+          await createRecaptcha();
+
+
+        } catch (error) {
+
+          console.error(
+            error
+          );
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================================
+       AUTH STATE
+    ========================================== */
+
+    onAuthStateChanged(
+      auth,
+      async function(user) {
+
+
+        if (user) {
+
+          showApp(
+            user
+          );
+
+        } else {
+
+          loginPage.classList.remove(
+            "hidden"
+          );
+
+          appPage.classList.add(
+            "hidden"
+          );
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================================
+       START
+    ========================================== */
+
+    createRecaptcha();
+
+
+  </script>
+
+
+</body>
+
+</html>

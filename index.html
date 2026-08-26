@@ -1245,46 +1245,4 @@ onAuthStateChanged(
 
             loginView.classList.remove(
                 "hidden"
-            );
-
-
-            /* Hide home */
-
-            homeView.classList.add(
-                "hidden"
-            );
-
-
-            /* Reset OTP */
-
-            otpBox.classList.add(
-                "hidden"
-            );
-
-
-            confirmationResult =
-            null;
-
-
-            try{
-
-                createRecaptcha();
-
-            }
-            catch(error){
-
-                console.error(
-                    error
-                );
-
-            }
-
-        }
-
-    }
-);
-
-</script>
-
-</body>
-</html>
+            

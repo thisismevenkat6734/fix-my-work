@@ -2,417 +2,294 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<meta
-    name="theme-color"
-    content="#4285F4"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#4285f4">
 
 <title>Fix My Work</title>
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
-* {
-    box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eef4ff,
-            #f7f9fc
-        );
-
-    color: #202124;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px;
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f1f5fb;
+  color:#202124;
 }
 
-
-/* =========================
-   CARD
-========================= */
-
-.card {
-    width: 100%;
-    max-width: 620px;
-
-    background: white;
-
-    border-radius: 30px;
-
-    padding: 40px 36px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(0, 0, 0, 0.10);
+button,
+input,
+textarea,
+select{
+  font:inherit;
 }
 
-
-/* =========================
-   LOGO
-========================= */
-
-.logo {
-    text-align: center;
-
-    font-size: 64px;
-
-    margin-bottom: 12px;
+.page{
+  min-height:100vh;
+  padding:20px 12px;
+  display:flex;
+  justify-content:center;
 }
 
-
-/* =========================
-   HEADINGS
-========================= */
-
-h1 {
-    margin: 0;
-
-    text-align: center;
-
-    font-size: 40px;
-
-    font-weight: 800;
+.container{
+  width:100%;
+  max-width:680px;
+  background:white;
+  border-radius:28px;
+  padding:28px 20px;
+  margin:auto 0;
+  box-shadow:0 15px 45px rgba(0,0,0,.08);
 }
 
-.subtitle {
-    text-align: center;
-
-    color: #6b7280;
-
-    font-size: 19px;
-
-    margin-top: 10px;
-
-    margin-bottom: 35px;
+.brand{
+  text-align:center;
 }
 
-
-/* =========================
-   FORM
-========================= */
-
-label {
-    display: block;
-
-    font-size: 17px;
-
-    font-weight: 700;
-
-    margin-bottom: 9px;
+.logo{
+  font-size:68px;
+  line-height:1;
+  margin:5px 0 8px;
 }
 
-input {
-    width: 100%;
-
-    height: 60px;
-
-    border: 1px solid #d8dde6;
-
-    border-radius: 14px;
-
-    outline: none;
-
-    padding:
-        0 16px;
-
-    font-size: 17px;
-
-    margin-bottom: 16px;
-
-    background: white;
+h1{
+  font-size:40px;
+  margin:0;
+  font-weight:800;
 }
 
-input:focus {
-    border-color: #4285f4;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(66, 133, 244, 0.12);
+.subtitle{
+  text-align:center;
+  color:#6b7280;
+  font-size:20px;
+  margin:10px 0 28px;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
-button {
-    width: 100%;
-
-    height: 60px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    background: #4285f4;
-
-    color: white;
-
-    font-size: 18px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.1s,
-        opacity 0.2s;
+.screen{
+  display:none;
 }
 
-button:active {
-    transform: scale(0.99);
+.screen.active{
+  display:block;
 }
 
-button:disabled {
-    opacity: 0.65;
-
-    cursor: not-allowed;
+.welcome{
+  text-align:center;
+  margin-bottom:24px;
 }
 
-.secondary-button {
-    background: #edf3ff;
-
-    color: #2459a6;
-
-    margin-top: 12px;
+.welcome h2{
+  font-size:30px;
+  line-height:1.15;
+  margin:8px 0 10px;
 }
 
-.danger-button {
-    background: #fce8e6;
-
-    color: #c5221f;
-
-    margin-top: 20px;
+.user-email{
+  color:#6b7280;
+  font-size:17px;
+  word-break:break-word;
 }
 
-
-/* =========================
-   LINKS
-========================= */
-
-.link-row {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-top: 15px;
-
-    margin-bottom: 10px;
+label{
+  display:block;
+  font-size:18px;
+  font-weight:700;
+  margin:16px 0 8px;
 }
 
-.link-button {
-    width: auto;
-
-    height: auto;
-
-    padding: 0;
-
-    background: none;
-
-    color: #4285f4;
-
-    font-size: 14px;
-
-    font-weight: 600;
+input,
+textarea,
+select{
+  width:100%;
+  border:1px solid #d5d9df;
+  border-radius:16px;
+  padding:16px;
+  background:white;
+  outline:none;
+  color:#202124;
 }
 
-
-/* =========================
-   MESSAGE
-========================= */
-
-.message {
-    min-height: 25px;
-
-    text-align: center;
-
-    margin-top: 17px;
-
-    font-size: 15px;
-
-    line-height: 1.45;
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#4285f4;
+  box-shadow:0 0 0 3px rgba(66,133,244,.12);
 }
 
-.success {
-    color: #188038;
+textarea{
+  min-height:120px;
+  resize:vertical;
 }
 
-.error {
-    color: #d93025;
+button{
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
 }
 
-.info {
-    color: #5f6368;
+.primary{
+  width:100%;
+  border:0;
+  border-radius:17px;
+  padding:18px;
+  margin-top:18px;
+  background:#4285f4;
+  color:white;
+  font-size:19px;
+  font-weight:700;
 }
 
-
-/* =========================
-   HIDDEN
-========================= */
-
-.hidden {
-    display: none !important;
+.secondary{
+  width:100%;
+  border:0;
+  border-radius:17px;
+  padding:18px;
+  margin-top:12px;
+  background:#edf3ff;
+  color:#24589a;
+  font-size:18px;
+  font-weight:700;
 }
 
-
-/* =========================
-   HOME
-========================= */
-
-.home {
-    text-align: center;
+.danger{
+  width:100%;
+  border:0;
+  border-radius:18px;
+  padding:20px;
+  margin-top:24px;
+  background:#fde8e8;
+  color:#c62828;
+  font-size:19px;
+  font-weight:700;
 }
 
-.home h2 {
-    margin: 0;
-
-    font-size: 30px;
+.services{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
 
-.user-email {
-    color: #5f6368;
-
-    margin-top: 10px;
-
-    word-break: break-word;
+.service{
+  border:1px solid #dce1e8;
+  background:#fbfcfe;
+  border-radius:21px;
+  padding:22px 10px;
+  min-height:105px;
+  font-size:19px;
+  font-weight:700;
+  color:#202124;
+  box-shadow:0 2px 5px rgba(0,0,0,.02);
 }
 
-.service-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 12px;
-
-    margin-top: 28px;
+.service:active{
+  transform:scale(.98);
+  background:#f2f7ff;
 }
 
-.service {
-    padding: 20px 10px;
-
-    border:
-        1px solid #e1e5eb;
-
-    border-radius: 16px;
-
-    background: #fafbfc;
-
-    font-weight: 700;
-
-    font-size: 15px;
+.service .icon{
+  display:block;
+  font-size:28px;
+  margin-bottom:7px;
 }
 
-
-/* =========================
-   MODAL
-========================= */
-
-.modal {
-    position: fixed;
-
-    inset: 0;
-
-    background:
-        rgba(0, 0, 0, 0.45);
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 20px;
-
-    z-index: 100;
+.message{
+  text-align:center;
+  min-height:22px;
+  margin-top:16px;
+  font-weight:600;
+  line-height:1.45;
 }
 
-.modal-box {
-    width: 100%;
-
-    max-width: 480px;
-
-    background: white;
-
-    border-radius: 22px;
-
-    padding: 28px;
+.success{
+  color:#188038;
 }
 
-.modal-box h2 {
-    margin-top: 0;
-
-    margin-bottom: 10px;
+.error{
+  color:#c5221f;
 }
 
-.close-button {
-    background: #f1f3f4;
-
-    color: #333;
-
-    margin-top: 10px;
+.info{
+  color:#5f6368;
 }
 
+.request-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
+}
 
-/* =========================
-   MOBILE
-========================= */
+.back{
+  width:46px;
+  height:46px;
+  border:0;
+  border-radius:50%;
+  background:#edf2f7;
+  font-size:25px;
+  flex:none;
+}
 
-@media (max-width: 520px) {
+.request-title{
+  font-size:27px;
+  font-weight:800;
+}
 
-    body {
-        padding: 12px;
-    }
+.selected{
+  background:#f1f6ff;
+  border:1px solid #dbe8ff;
+  border-radius:16px;
+  padding:15px;
+  margin-bottom:18px;
+  color:#24589a;
+  font-weight:700;
+}
 
-    .card {
-        padding:
-            30px 20px;
+.request-id{
+  display:none;
+  background:#e8f5e9;
+  border:1px solid #b7dfba;
+  color:#137333;
+  border-radius:16px;
+  padding:17px;
+  margin-top:18px;
+  text-align:center;
+  line-height:1.6;
+  word-break:break-word;
+}
 
-        border-radius: 24px;
-    }
+.loading{
+  opacity:.65;
+  pointer-events:none;
+}
 
-    .logo {
-        font-size: 56px;
-    }
+@media(max-width:520px){
 
-    h1 {
-        font-size: 34px;
-    }
+  .container{
+    border-radius:24px;
+    padding:25px 17px;
+  }
 
-    .subtitle {
-        font-size: 17px;
-    }
+  h1{
+    font-size:36px;
+  }
 
-    .service-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
+  .logo{
+    font-size:60px;
+  }
+
+  .service{
+    font-size:17px;
+    min-height:100px;
+  }
+
+}
+
+@media(max-width:390px){
+
+  .services{
+    grid-template-columns:1fr;
+  }
 
 }
 
@@ -422,1357 +299,1431 @@ button:disabled {
 
 <body>
 
+<div class="page">
 
-<div class="card">
+<main class="container">
 
 
-<!-- ==================================================
-     LOGIN / REGISTER VIEW
-================================================== -->
+<!-- ========================= -->
+<!-- BRAND -->
+<!-- ========================= -->
 
-<div id="authView">
+<div class="brand">
 
+  <div class="logo">
+    🛠️
+  </div>
 
-    <div class="logo">
-        🛠️
-    </div>
+  <h1>
+    Fix My Work
+  </h1>
 
-
-    <h1>
-        Fix My Work
-    </h1>
-
-
-    <div class="subtitle">
-        Local Service Marketplace
-    </div>
-
-
-    <!-- =========================
-         LOGIN FORM
-    ========================== -->
-
-    <div id="loginForm">
-
-
-        <label for="loginEmail">
-            Email Address
-        </label>
-
-
-        <input
-            id="loginEmail"
-            type="email"
-            autocomplete="email"
-            placeholder="Enter your email"
-        >
-
-
-        <label for="loginPassword">
-            Password
-        </label>
-
-
-        <input
-            id="loginPassword"
-            type="password"
-            autocomplete="current-password"
-            placeholder="Enter your password"
-        >
-
-
-        <button
-            id="loginBtn"
-            type="button"
-        >
-            Login
-        </button>
-
-
-        <div class="link-row">
-
-
-            <button
-                id="forgotBtn"
-                type="button"
-                class="link-button"
-            >
-                Forgot Password?
-            </button>
-
-
-            <button
-                id="showRegisterBtn"
-                type="button"
-                class="link-button"
-            >
-                Create Account
-            </button>
-
-
-        </div>
-
-
-    </div>
-
-
-    <!-- =========================
-         REGISTER FORM
-    ========================== -->
-
-    <div
-        id="registerForm"
-        class="hidden"
-    >
-
-
-        <label for="registerName">
-            Full Name
-        </label>
-
-
-        <input
-            id="registerName"
-            type="text"
-            autocomplete="name"
-            placeholder="Enter your name"
-        >
-
-
-        <label for="registerEmail">
-            Email Address
-        </label>
-
-
-        <input
-            id="registerEmail"
-            type="email"
-            autocomplete="email"
-            placeholder="Enter your email"
-        >
-
-
-        <label for="registerPassword">
-            Password
-        </label>
-
-
-        <input
-            id="registerPassword"
-            type="password"
-            autocomplete="new-password"
-            placeholder="Minimum 6 characters"
-        >
-
-
-        <label for="confirmPassword">
-            Confirm Password
-        </label>
-
-
-        <input
-            id="confirmPassword"
-            type="password"
-            autocomplete="new-password"
-            placeholder="Re-enter password"
-        >
-
-
-        <button
-            id="registerBtn"
-            type="button"
-        >
-            Create Account
-        </button>
-
-
-        <button
-            id="showLoginBtn"
-            type="button"
-            class="secondary-button"
-        >
-            Back to Login
-        </button>
-
-
-    </div>
-
-
-    <!-- =========================
-         MESSAGE
-    ========================== -->
-
-    <div
-        id="message"
-        class="message"
-    ></div>
-
-
-    <div class="small">
-        Secure authentication powered by Firebase
-    </div>
-
+  <div class="subtitle">
+    Local Service Marketplace
+  </div>
 
 </div>
 
 
+<!-- ========================= -->
+<!-- LOGIN -->
+<!-- ========================= -->
 
-<!-- ==================================================
-     HOME VIEW
-================================================== -->
+<section id="loginScreen" class="screen">
 
-<div
-    id="homeView"
-    class="home hidden"
+  <label for="loginEmail">
+    Email Address
+  </label>
+
+  <input
+    id="loginEmail"
+    type="email"
+    autocomplete="email"
+    placeholder="Enter your email"
+  >
+
+
+  <label for="loginPassword">
+    Password
+  </label>
+
+  <input
+    id="loginPassword"
+    type="password"
+    autocomplete="current-password"
+    placeholder="Enter your password"
+  >
+
+
+  <button
+    id="loginBtn"
+    class="primary"
+    type="button"
+  >
+    Login
+  </button>
+
+
+  <button
+    id="showSignupBtn"
+    class="secondary"
+    type="button"
+  >
+    Create New Account
+  </button>
+
+
+  <div
+    id="loginMessage"
+    class="message"
+  ></div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- SIGNUP -->
+<!-- ========================= -->
+
+<section id="signupScreen" class="screen">
+
+  <label for="signupName">
+    Full Name
+  </label>
+
+  <input
+    id="signupName"
+    type="text"
+    autocomplete="name"
+    placeholder="Enter your full name"
+  >
+
+
+  <label for="signupEmail">
+    Email Address
+  </label>
+
+  <input
+    id="signupEmail"
+    type="email"
+    autocomplete="email"
+    placeholder="Enter your email"
+  >
+
+
+  <label for="signupPassword">
+    Password
+  </label>
+
+  <input
+    id="signupPassword"
+    type="password"
+    autocomplete="new-password"
+    placeholder="Minimum 6 characters"
+  >
+
+
+  <label for="signupConfirm">
+    Confirm Password
+  </label>
+
+  <input
+    id="signupConfirm"
+    type="password"
+    autocomplete="new-password"
+    placeholder="Confirm password"
+  >
+
+
+  <button
+    id="signupBtn"
+    class="primary"
+    type="button"
+  >
+    Create Account
+  </button>
+
+
+  <button
+    id="backLoginBtn"
+    class="secondary"
+    type="button"
+  >
+    Back to Login
+  </button>
+
+
+  <div
+    id="signupMessage"
+    class="message"
+  ></div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- DASHBOARD -->
+<!-- ========================= -->
+
+<section
+  id="dashboardScreen"
+  class="screen"
 >
 
 
-    <div class="logo">
-        🛠️
-    </div>
-
+  <div class="welcome">
 
     <h2>
-        Welcome to Fix My Work
+      Welcome to Fix My Work
     </h2>
 
+    <div
+      id="userEmail"
+      class="user-email"
+    ></div>
 
-    <p
-        id="userEmail"
-        class="user-email"
-    ></p>
-
-
-    <div class="service-grid">
+  </div>
 
 
-        <div class="service">
-            ⚡ Electrician
-        </div>
-
-
-        <div class="service">
-            🔧 Plumber
-        </div>
-
-
-        <div class="service">
-            ❄️ AC Repair
-        </div>
-
-
-        <div class="service">
-            💧 RO Repair
-        </div>
-
-
-        <div class="service">
-            🔌 Appliance Repair
-        </div>
-
-
-        <div class="service">
-            🏠 Home Services
-        </div>
-
-
-    </div>
+  <div class="services">
 
 
     <button
-        id="logoutBtn"
-        type="button"
-        class="danger-button"
+      class="service"
+      type="button"
+      data-service="Electrician"
     >
-        Logout
+
+      <span class="icon">
+        ⚡
+      </span>
+
+      Electrician
+
     </button>
 
 
-</div>
+
+    <button
+      class="service"
+      type="button"
+      data-service="Plumber"
+    >
+
+      <span class="icon">
+        🔧
+      </span>
+
+      Plumber
+
+    </button>
 
 
-</div>
+
+    <button
+      class="service"
+      type="button"
+      data-service="AC Repair"
+    >
+
+      <span class="icon">
+        ❄️
+      </span>
+
+      AC Repair
+
+    </button>
 
 
 
-<!-- ==================================================
-     FORGOT PASSWORD MODAL
-================================================== -->
+    <button
+      class="service"
+      type="button"
+      data-service="RO Repair"
+    >
 
-<div
-    id="resetModal"
-    class="modal hidden"
+      <span class="icon">
+        💧
+      </span>
+
+      RO Repair
+
+    </button>
+
+
+
+    <button
+      class="service"
+      type="button"
+      data-service="Appliance Repair"
+    >
+
+      <span class="icon">
+        🔌
+      </span>
+
+      Appliance Repair
+
+    </button>
+
+
+
+    <button
+      class="service"
+      type="button"
+      data-service="Home Services"
+    >
+
+      <span class="icon">
+        🏠
+      </span>
+
+      Home Services
+
+    </button>
+
+
+  </div>
+
+
+  <button
+    id="logoutBtn"
+    class="danger"
+    type="button"
+  >
+    Logout
+  </button>
+
+
+  <div
+    id="dashboardMessage"
+    class="message"
+  ></div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- SERVICE REQUEST -->
+<!-- ========================= -->
+
+<section
+  id="requestScreen"
+  class="screen"
 >
 
 
-    <div class="modal-box">
+  <div class="request-head">
 
+    <button
+      id="backDashboardBtn"
+      class="back"
+      type="button"
+    >
+      ←
+    </button>
 
-        <h2>
-            Reset Password
-        </h2>
-
-
-        <p>
-            Enter your email address. Firebase will
-            send a password reset link.
-        </p>
-
-
-        <label for="resetEmail">
-            Email Address
-        </label>
-
-
-        <input
-            id="resetEmail"
-            type="email"
-            placeholder="Enter your email"
-        >
-
-
-        <button
-            id="sendResetBtn"
-            type="button"
-        >
-            Send Reset Email
-        </button>
-
-
-        <button
-            id="closeResetBtn"
-            type="button"
-            class="close-button"
-        >
-            Close
-        </button>
-
-
-        <div
-            id="resetMessage"
-            class="message"
-        ></div>
-
-
+    <div class="request-title">
+      Service Request
     </div>
 
+  </div>
+
+
+  <div
+    id="selectedService"
+    class="selected"
+  >
+    Service
+  </div>
+
+
+  <label for="customerName">
+    Your Name
+  </label>
+
+  <input
+    id="customerName"
+    type="text"
+    autocomplete="name"
+    placeholder="Enter your name"
+  >
+
+
+  <label for="customerPhone">
+    Mobile Number
+  </label>
+
+  <input
+    id="customerPhone"
+    type="tel"
+    inputmode="numeric"
+    maxlength="10"
+    placeholder="10 digit mobile number"
+  >
+
+
+  <label for="customerLocation">
+    Location
+  </label>
+
+  <input
+    id="customerLocation"
+    type="text"
+    placeholder="Area / City / Address"
+  >
+
+
+  <label for="problem">
+    What do you need?
+  </label>
+
+  <textarea
+    id="problem"
+    placeholder="Describe your problem"
+  ></textarea>
+
+
+  <label for="preferredTime">
+    Preferred Time
+  </label>
+
+  <select id="preferredTime">
+
+    <option value="">
+      Select preferred time
+    </option>
+
+    <option value="Morning">
+      Morning (8 AM - 12 PM)
+    </option>
+
+    <option value="Afternoon">
+      Afternoon (12 PM - 4 PM)
+    </option>
+
+    <option value="Evening">
+      Evening (4 PM - 8 PM)
+    </option>
+
+    <option value="Anytime">
+      Anytime
+    </option>
+
+  </select>
+
+
+  <button
+    id="submitRequestBtn"
+    class="primary"
+    type="button"
+  >
+    Submit Service Request
+  </button>
+
+
+  <button
+    id="cancelRequestBtn"
+    class="secondary"
+    type="button"
+  >
+    Cancel
+  </button>
+
+
+  <div
+    id="requestMessage"
+    class="message"
+  ></div>
+
+
+  <div
+    id="requestId"
+    class="request-id"
+  ></div>
+
+</section>
+
+
+</main>
 
 </div>
 
 
 
-<!-- ==================================================
-     FIREBASE
-================================================== -->
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
 
 <script type="module">
 
 
-/* ==================================================
-   FIREBASE APP
-================================================== */
+/*
+====================================================
+FIX MY WORK
+FIREBASE CONNECTION
+====================================================
+
+Your existing file is:
+
+js/firebase.js
+
+It already exports:
+auth
+db
+
+We are using that file here.
+*/
+
 
 import {
-    initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  auth
+} from "./js/firebase.js";
 
-
-/* ==================================================
-   FIREBASE AUTH
-================================================== */
 
 import {
-    getAuth,
+  db
+} from "./js/firebase.js";
 
-    createUserWithEmailAndPassword,
 
-    signInWithEmailAndPassword,
+import {
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-    sendPasswordResetEmail,
 
-    signOut,
+import {
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-    onAuthStateChanged,
 
-    updateProfile
+
+/* =========================
+SCREENS
+========================= */
+
+const loginScreen =
+  document.getElementById("loginScreen");
+
+const signupScreen =
+  document.getElementById("signupScreen");
+
+const dashboardScreen =
+  document.getElementById("dashboardScreen");
+
+const requestScreen =
+  document.getElementById("requestScreen");
+
+
+
+/* =========================
+MESSAGES
+========================= */
+
+const loginMessage =
+  document.getElementById("loginMessage");
+
+const signupMessage =
+  document.getElementById("signupMessage");
+
+const requestMessage =
+  document.getElementById("requestMessage");
+
+
+
+/* =========================
+USER
+========================= */
+
+let currentUser = null;
+
+let currentService = "";
+
+
+
+/* =========================
+SHOW SCREEN
+========================= */
+
+function showScreen(screen){
+
+  loginScreen.classList.remove("active");
+
+  signupScreen.classList.remove("active");
+
+  dashboardScreen.classList.remove("active");
+
+  requestScreen.classList.remove("active");
+
+
+  screen.classList.add("active");
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
 }
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
 
-/* ==================================================
-   FIREBASE CONFIG
-================================================== */
-
-const firebaseConfig = {
-
-    apiKey:
-    "AIzaSyCP8DGLQMXPUsv_p2zQ-NLkziwPQe1XkgU",
-
-    authDomain:
-    "fixmywork-d83ba.firebaseapp.com",
-
-    projectId:
-    "fixmywork-d83ba",
-
-    storageBucket:
-    "fixmywork-d83ba.firebasestorage.app",
-
-    messagingSenderId:
-    "207313302232",
-
-    appId:
-    "1:207313302232:web:73055348982ad84abeddad",
-
-    measurementId:
-    "G-11FQMLCBQY"
-
-};
-
-
-
-/* ==================================================
-   INITIALIZE
-================================================== */
-
-const app =
-initializeApp(
-    firebaseConfig
-);
-
-
-const auth =
-getAuth(
-    app
-);
-
-
-
-/* ==================================================
-   ELEMENTS
-================================================== */
-
-const authView =
-document.getElementById(
-    "authView"
-);
-
-
-const homeView =
-document.getElementById(
-    "homeView"
-);
-
-
-const loginForm =
-document.getElementById(
-    "loginForm"
-);
-
-
-const registerForm =
-document.getElementById(
-    "registerForm"
-);
-
-
-const loginEmail =
-document.getElementById(
-    "loginEmail"
-);
-
-
-const loginPassword =
-document.getElementById(
-    "loginPassword"
-);
-
-
-const registerName =
-document.getElementById(
-    "registerName"
-);
-
-
-const registerEmail =
-document.getElementById(
-    "registerEmail"
-);
-
-
-const registerPassword =
-document.getElementById(
-    "registerPassword"
-);
-
-
-const confirmPassword =
-document.getElementById(
-    "confirmPassword"
-);
-
-
-const loginBtn =
-document.getElementById(
-    "loginBtn"
-);
-
-
-const registerBtn =
-document.getElementById(
-    "registerBtn"
-);
-
-
-const logoutBtn =
-document.getElementById(
-    "logoutBtn"
-);
-
-
-const showRegisterBtn =
-document.getElementById(
-    "showRegisterBtn"
-);
-
-
-const showLoginBtn =
-document.getElementById(
-    "showLoginBtn"
-);
-
-
-const forgotBtn =
-document.getElementById(
-    "forgotBtn"
-);
-
-
-const message =
-document.getElementById(
-    "message"
-);
-
-
-const userEmail =
-document.getElementById(
-    "userEmail"
-);
-
-
-const resetModal =
-document.getElementById(
-    "resetModal"
-);
-
-
-const resetEmail =
-document.getElementById(
-    "resetEmail"
-);
-
-
-const sendResetBtn =
-document.getElementById(
-    "sendResetBtn"
-);
-
-
-const closeResetBtn =
-document.getElementById(
-    "closeResetBtn"
-);
-
-
-const resetMessage =
-document.getElementById(
-    "resetMessage"
-);
-
-
-
-/* ==================================================
-   MESSAGE
-================================================== */
+/* =========================
+MESSAGE
+========================= */
 
 function showMessage(
-    text,
-    type = "info"
-) {
+  element,
+  text,
+  type=""
+){
 
-    message.textContent =
-    text;
+  element.textContent = text;
 
-    message.className =
+  element.className =
     "message " + type;
-}
-
-
-/* ==================================================
-   RESET MESSAGE
-================================================== */
-
-function showResetMessage(
-    text,
-    type = "info"
-) {
-
-    resetMessage.textContent =
-    text;
-
-    resetMessage.className =
-    "message " + type;
-}
-
-
-
-/* ==================================================
-   ERROR HANDLER
-================================================== */
-
-function getErrorMessage(
-    error
-) {
-
-    console.log(
-        "Firebase error:",
-        error.code,
-        error.message
-    );
-
-
-    switch (
-        error.code
-    ) {
-
-
-        case
-        "auth/invalid-email":
-
-            return "Please enter a valid email address.";
-
-
-        case
-        "auth/missing-password":
-
-            return "Please enter your password.";
-
-
-        case
-        "auth/weak-password":
-
-            return "Password must contain at least 6 characters.";
-
-
-        case
-        "auth/email-already-in-use":
-
-            return "This email is already registered. Please login.";
-
-
-        case
-        "auth/invalid-credential":
-
-            return "Incorrect email or password.";
-
-
-        case
-        "auth/user-not-found":
-
-            return "No account found with this email.";
-
-
-        case
-        "auth/wrong-password":
-
-            return "Incorrect password.";
-
-
-        case
-        "auth/user-disabled":
-
-            return "This account has been disabled.";
-
-
-        case
-        "auth/too-many-requests":
-
-            return "Too many attempts. Please wait and try again later.";
-
-
-        case
-        "auth/network-request-failed":
-
-            return "Network error. Please check your internet connection.";
-
-
-        case
-        "auth/operation-not-allowed":
-
-            return "Email/Password login is not enabled in Firebase.";
-
-
-        case
-        "auth/invalid-api-key":
-
-            return "Firebase configuration error. Please check the Firebase settings.";
-
-
-        case
-        "auth/quota-exceeded":
-
-            return "Firebase quota exceeded. Please try again later.";
-
-
-        default:
-
-            return (
-                error.message ||
-                "Something went wrong. Please try again."
-            );
-
-    }
 
 }
 
 
 
-/* ==================================================
-   SHOW LOGIN
-================================================== */
+/* =========================
+FIREBASE ERROR
+========================= */
 
-showLoginBtn.addEventListener(
+function firebaseError(error){
+
+  if(!error){
+
+    return "Something went wrong.";
+
+  }
+
+
+  switch(error.code){
+
+    case "auth/invalid-credential":
+
+      return "Incorrect email or password.";
+
+
+    case "auth/invalid-login-credentials":
+
+      return "Incorrect email or password.";
+
+
+    case "auth/invalid-email":
+
+      return "Please enter a valid email address.";
+
+
+    case "auth/email-already-in-use":
+
+      return "This email is already registered.";
+
+
+    case "auth/weak-password":
+
+      return "Password must contain at least 6 characters.";
+
+
+    case "auth/user-not-found":
+
+      return "Account not found.";
+
+
+    case "auth/wrong-password":
+
+      return "Incorrect password.";
+
+
+    case "auth/too-many-requests":
+
+      return "Too many attempts. Please try again later.";
+
+
+    case "auth/network-request-failed":
+
+      return "Internet connection problem.";
+
+
+    case "permission-denied":
+
+      return "Firebase permission denied. Check Firestore Rules.";
+
+
+    default:
+
+      return error.message ||
+        "Something went wrong.";
+
+  }
+
+}
+
+
+
+/* =========================
+LOGIN
+========================= */
+
+document
+  .getElementById("loginBtn")
+  .addEventListener(
     "click",
-    function() {
+    async function(){
 
-        registerForm.classList.add(
-            "hidden"
-        );
+      const email =
+        document
+          .getElementById("loginEmail")
+          .value
+          .trim();
 
-        loginForm.classList.remove(
-            "hidden"
-        );
+
+      const password =
+        document
+          .getElementById("loginPassword")
+          .value;
+
+
+      if(!email || !password){
 
         showMessage(
-            "",
-            "info"
+          loginMessage,
+          "Please enter email and password.",
+          "error"
         );
 
-    }
-);
+        return;
+
+      }
 
 
-
-/* ==================================================
-   SHOW REGISTER
-================================================== */
-
-showRegisterBtn.addEventListener(
-    "click",
-    function() {
-
-        loginForm.classList.add(
-            "hidden"
-        );
-
-        registerForm.classList.remove(
-            "hidden"
-        );
-
-        showMessage(
-            "",
-            "info"
-        );
-
-    }
-);
+      const button =
+        document.getElementById("loginBtn");
 
 
+      try{
 
-/* ==================================================
-   CREATE ACCOUNT
-================================================== */
+        button.classList.add("loading");
 
-registerBtn.addEventListener(
-    "click",
-    async function() {
-
-
-        const name =
-        registerName.value.trim();
-
-
-        const email =
-        registerEmail.value.trim();
-
-
-        const password =
-        registerPassword.value;
-
-
-        const confirm =
-        confirmPassword.value;
-
-
-        /* Name */
-
-        if (
-            name.length < 2
-        ) {
-
-            showMessage(
-                "Please enter your full name.",
-                "error"
-            );
-
-            registerName.focus();
-
-            return;
-        }
-
-
-        /* Email */
-
-        if (
-            !email ||
-            !email.includes("@")
-        ) {
-
-            showMessage(
-                "Please enter a valid email address.",
-                "error"
-            );
-
-            registerEmail.focus();
-
-            return;
-        }
-
-
-        /* Password */
-
-        if (
-            password.length < 6
-        ) {
-
-            showMessage(
-                "Password must contain at least 6 characters.",
-                "error"
-            );
-
-            registerPassword.focus();
-
-            return;
-        }
-
-
-        /* Confirm */
-
-        if (
-            password !== confirm
-        ) {
-
-            showMessage(
-                "Passwords do not match.",
-                "error"
-            );
-
-            confirmPassword.focus();
-
-            return;
-        }
-
-
-        registerBtn.disabled =
-        true;
-
-
-        registerBtn.textContent =
-        "Creating Account...";
+        button.textContent =
+          "Logging in...";
 
 
         showMessage(
-            "Creating your account...",
-            "info"
+          loginMessage,
+          "Please wait...",
+          "info"
         );
 
 
-        try {
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
 
-            const result =
-            await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+      }
 
+      catch(error){
 
-            /* Save display name */
-
-            await updateProfile(
-                result.user,
-                {
-                    displayName:
-                    name
-                }
-            );
-
-
-            showMessage(
-                "Account created successfully!",
-                "success"
-            );
-
-
-            /* Auth observer will
-               automatically show home */
-
-        }
-        catch (error) {
-
-
-            showMessage(
-                getErrorMessage(error),
-                "error"
-            );
-
-        }
-        finally {
-
-
-            registerBtn.disabled =
-            false;
-
-
-            registerBtn.textContent =
-            "Create Account";
-
-        }
-
-    }
-);
-
-
-
-/* ==================================================
-   LOGIN
-================================================== */
-
-loginBtn.addEventListener(
-    "click",
-    async function() {
-
-
-        const email =
-        loginEmail.value.trim();
-
-
-        const password =
-        loginPassword.value;
-
-
-        if (
-            !email
-        ) {
-
-            showMessage(
-                "Please enter your email address.",
-                "error"
-            );
-
-            loginEmail.focus();
-
-            return;
-        }
-
-
-        if (
-            !password
-        ) {
-
-            showMessage(
-                "Please enter your password.",
-                "error"
-            );
-
-            loginPassword.focus();
-
-            return;
-        }
-
-
-        loginBtn.disabled =
-        true;
-
-
-        loginBtn.textContent =
-        "Logging in...";
+        console.error(error);
 
 
         showMessage(
-            "Signing you in...",
-            "info"
+          loginMessage,
+          firebaseError(error),
+          "error"
         );
 
+      }
 
-        try {
+      finally{
 
+        button.classList.remove(
+          "loading"
+        );
 
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+        button.textContent =
+          "Login";
 
-
-            showMessage(
-                "Login successful!",
-                "success"
-            );
-
-
-        }
-        catch (error) {
-
-
-            showMessage(
-                getErrorMessage(error),
-                "error"
-            );
-
-        }
-        finally {
-
-
-            loginBtn.disabled =
-            false;
-
-
-            loginBtn.textContent =
-            "Login";
-
-        }
+      }
 
     }
-);
+  );
 
 
 
-/* ==================================================
-   FORGOT PASSWORD
-================================================== */
+/* =========================
+SHOW SIGNUP
+========================= */
 
-forgotBtn.addEventListener(
+document
+  .getElementById("showSignupBtn")
+  .addEventListener(
     "click",
-    function() {
+    function(){
 
+      showMessage(
+        loginMessage,
+        ""
+      );
 
-        resetEmail.value =
-        loginEmail.value.trim();
-
-
-        showResetMessage(
-            "",
-            "info"
-        );
-
-
-        resetModal.classList.remove(
-            "hidden"
-        );
-
-
-        setTimeout(
-            function() {
-
-                resetEmail.focus();
-
-            },
-            100
-        );
+      showScreen(
+        signupScreen
+      );
 
     }
-);
+  );
 
 
 
-/* ==================================================
-   CLOSE RESET
-================================================== */
+/* =========================
+BACK LOGIN
+========================= */
 
-closeResetBtn.addEventListener(
+document
+  .getElementById("backLoginBtn")
+  .addEventListener(
     "click",
-    function() {
+    function(){
 
-        resetModal.classList.add(
-            "hidden"
+      showMessage(
+        signupMessage,
+        ""
+      );
+
+      showScreen(
+        loginScreen
+      );
+
+    }
+  );
+
+
+
+/* =========================
+CREATE ACCOUNT
+========================= */
+
+document
+  .getElementById("signupBtn")
+  .addEventListener(
+    "click",
+    async function(){
+
+      const name =
+        document
+          .getElementById("signupName")
+          .value
+          .trim();
+
+
+      const email =
+        document
+          .getElementById("signupEmail")
+          .value
+          .trim();
+
+
+      const password =
+        document
+          .getElementById("signupPassword")
+          .value;
+
+
+      const confirm =
+        document
+          .getElementById("signupConfirm")
+          .value;
+
+
+      if(
+        !name ||
+        !email ||
+        !password ||
+        !confirm
+      ){
+
+        showMessage(
+          signupMessage,
+          "Please fill all fields.",
+          "error"
         );
 
-    }
-);
+        return;
+
+      }
 
 
+      if(password.length < 6){
 
-/* ==================================================
-   RESET PASSWORD EMAIL
-================================================== */
+        showMessage(
+          signupMessage,
+          "Password must contain at least 6 characters.",
+          "error"
+        );
 
-sendResetBtn.addEventListener(
-    "click",
-    async function() {
+        return;
 
-
-        const email =
-        resetEmail.value.trim();
-
-
-        if (
-            !email ||
-            !email.includes("@")
-        ) {
-
-            showResetMessage(
-                "Please enter a valid email address.",
-                "error"
-            );
-
-            resetEmail.focus();
-
-            return;
-        }
+      }
 
 
-        sendResetBtn.disabled =
-        true;
+      if(password !== confirm){
+
+        showMessage(
+          signupMessage,
+          "Passwords do not match.",
+          "error"
+        );
+
+        return;
+
+      }
 
 
-        sendResetBtn.textContent =
-        "Sending...";
-
-
-        showResetMessage(
-            "Sending password reset email...",
-            "info"
+      const button =
+        document.getElementById(
+          "signupBtn"
         );
 
 
-        try {
+      try{
+
+        button.classList.add(
+          "loading"
+        );
+
+        button.textContent =
+          "Creating...";
 
 
-            await sendPasswordResetEmail(
-                auth,
-                email
-            );
+        const result =
+          await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
 
 
-            showResetMessage(
-                "Password reset email sent. Check your inbox.",
-                "success"
-            );
+        await updateProfile(
+          result.user,
+          {
+            displayName:name
+          }
+        );
 
 
-        }
-        catch (error) {
+        showMessage(
+          signupMessage,
+          "Account created successfully.",
+          "success"
+        );
 
 
-            showResetMessage(
-                getErrorMessage(error),
-                "error"
-            );
+      }
 
-        }
-        finally {
+      catch(error){
+
+        console.error(error);
 
 
-            sendResetBtn.disabled =
-            false;
+        showMessage(
+          signupMessage,
+          firebaseError(error),
+          "error"
+        );
 
+      }
 
-            sendResetBtn.textContent =
-            "Send Reset Email";
+      finally{
 
-        }
+        button.classList.remove(
+          "loading"
+        );
 
-    }
-);
+        button.textContent =
+          "Create Account";
 
-
-
-/* ==================================================
-   LOGOUT
-================================================== */
-
-logoutBtn.addEventListener(
-    "click",
-    async function() {
-
-
-        logoutBtn.disabled =
-        true;
-
-
-        logoutBtn.textContent =
-        "Logging out...";
-
-
-        try {
-
-
-            await signOut(
-                auth
-            );
-
-
-        }
-        catch (error) {
-
-
-            console.error(
-                "Logout error:",
-                error
-            );
-
-
-        }
-        finally {
-
-
-            logoutBtn.disabled =
-            false;
-
-
-            logoutBtn.textContent =
-            "Logout";
-
-        }
+      }
 
     }
-);
+  );
 
 
 
-/* ==================================================
-   AUTH STATE
-================================================== */
+/* =========================
+AUTH STATE
+========================= */
 
 onAuthStateChanged(
-    auth,
-    function(user) {
+  auth,
+  function(user){
+
+    if(user){
+
+      currentUser =
+        user;
 
 
-        if (
-            user
-        ) {
+      document
+        .getElementById("userEmail")
+        .textContent =
+          user.email || "";
 
 
-            /* Hide auth */
-
-            authView.classList.add(
-                "hidden"
-            );
-
-
-            /* Show home */
-
-            homeView.classList.remove(
-                "hidden"
-            );
-
-
-            /* User email */
-
-            userEmail.textContent =
-            user.email ||
-            "";
-
-
-        }
-        else {
-
-
-            /* Show auth */
-
-            authView.classList.remove(
-                "hidden"
-            );
-
-
-            /* Hide home */
-
-            homeView.classList.add(
-                "hidden"
-            );
-
-        }
+      showScreen(
+        dashboardScreen
+      );
 
     }
+
+    else{
+
+      currentUser =
+        null;
+
+
+      showScreen(
+        loginScreen
+      );
+
+    }
+
+  }
 );
 
 
 
-/* ==================================================
-   ENTER KEY SUPPORT
-================================================== */
+/* =========================
+SERVICE BUTTONS
+========================= */
 
-loginPassword.addEventListener(
-    "keydown",
-    function(event) {
+document
+  .querySelectorAll(".service")
+  .forEach(
+    function(button){
 
-        if (
-            event.key === "Enter"
-        ) {
+      button.addEventListener(
+        "click",
+        function(){
 
-            loginBtn.click();
+          if(!currentUser){
+
+            showScreen(
+              loginScreen
+            );
+
+            return;
+
+          }
+
+
+          currentService =
+            button.dataset.service;
+
+
+          document
+            .getElementById(
+              "selectedService"
+            )
+            .textContent =
+              "🛠️ " +
+              currentService;
+
+
+          const nameInput =
+            document.getElementById(
+              "customerName"
+            );
+
+
+          if(
+            currentUser.displayName &&
+            !nameInput.value
+          ){
+
+            nameInput.value =
+              currentUser.displayName;
+
+          }
+
+
+          showMessage(
+            requestMessage,
+            ""
+          );
+
+
+          document
+            .getElementById(
+              "requestId"
+            )
+            .style.display =
+              "none";
+
+
+          showScreen(
+            requestScreen
+          );
 
         }
+      );
 
     }
-);
+  );
 
 
-confirmPassword.addEventListener(
-    "keydown",
-    function(event) {
 
-        if (
-            event.key === "Enter"
-        ) {
+/* =========================
+BACK TO DASHBOARD
+========================= */
 
-            registerBtn.click();
-
-        }
-
-    }
-);
-
-
-/* ==================================================
-   CLOSE MODAL BY BACKGROUND
-================================================== */
-
-resetModal.addEventListener(
+document
+  .getElementById(
+    "backDashboardBtn"
+  )
+  .addEventListener(
     "click",
-    function(event) {
+    function(){
 
-        if (
-            event.target === resetModal
-        ) {
-
-            resetModal.classList.add(
-                "hidden"
-            );
-
-        }
+      showScreen(
+        dashboardScreen
+      );
 
     }
-);
+  );
 
+
+
+/* =========================
+CANCEL REQUEST
+========================= */
+
+document
+  .getElementById(
+    "cancelRequestBtn"
+  )
+  .addEventListener(
+    "click",
+    function(){
+
+      showScreen(
+        dashboardScreen
+      );
+
+    }
+  );
+
+
+
+/* =========================
+SUBMIT REQUEST
+========================= */
+
+document
+  .getElementById(
+    "submitRequestBtn"
+  )
+  .addEventListener(
+    "click",
+    async function(){
+
+      if(!currentUser){
+
+        showMessage(
+          requestMessage,
+          "Please login first.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      const name =
+        document
+          .getElementById(
+            "customerName"
+          )
+          .value
+          .trim();
+
+
+      const phone =
+        document
+          .getElementById(
+            "customerPhone"
+          )
+          .value
+          .trim();
+
+
+      const location =
+        document
+          .getElementById(
+            "customerLocation"
+          )
+          .value
+          .trim();
+
+
+      const problem =
+        document
+          .getElementById(
+            "problem"
+          )
+          .value
+          .trim();
+
+
+      const preferredTime =
+        document
+          .getElementById(
+            "preferredTime"
+          )
+          .value;
+
+
+      if(
+        !name ||
+        !phone ||
+        !location ||
+        !problem ||
+        !preferredTime
+      ){
+
+        showMessage(
+          requestMessage,
+          "Please fill all fields.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      if(
+        !/^[0-9]{10}$/.test(phone)
+      ){
+
+        showMessage(
+          requestMessage,
+          "Please enter a valid 10 digit mobile number.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      const button =
+        document.getElementById(
+          "submitRequestBtn"
+        );
+
+
+      try{
+
+        button.classList.add(
+          "loading"
+        );
+
+        button.textContent =
+          "Submitting...";
+
+
+        showMessage(
+          requestMessage,
+          "Sending your request...",
+          "info"
+        );
+
+
+        const docRef =
+          await addDoc(
+            collection(
+              db,
+              "serviceRequests"
+            ),
+            {
+
+              service:
+                currentService,
+
+              customerName:
+                name,
+
+              customerPhone:
+                phone,
+
+              customerLocation:
+                location,
+
+              problem:
+                problem,
+
+              preferredTime:
+                preferredTime,
+
+              userId:
+                currentUser.uid,
+
+              userEmail:
+                currentUser.email || "",
+
+              status:
+                "pending",
+
+              createdAt:
+                serverTimestamp()
+
+            }
+          );
+
+
+        showMessage(
+          requestMessage,
+          "Request submitted successfully.",
+          "success"
+        );
+
+
+        const requestId =
+          document.getElementById(
+            "requestId"
+          );
+
+
+        requestId.style.display =
+          "block";
+
+
+        requestId.innerHTML =
+          "<strong>Request ID</strong><br>" +
+          docRef.id +
+          "<br><br>" +
+          "Your service request has been received.";
+
+
+        document
+          .getElementById(
+            "customerPhone"
+          )
+          .value = "";
+
+
+        document
+          .getElementById(
+            "customerLocation"
+          )
+          .value = "";
+
+
+        document
+          .getElementById(
+            "problem"
+          )
+          .value = "";
+
+
+        document
+          .getElementById(
+            "preferredTime"
+          )
+          .value = "";
+
+      }
+
+      catch(error){
+
+        console.error(error);
+
+
+        showMessage(
+          requestMessage,
+          firebaseError(error),
+          "error"
+        );
+
+      }
+
+      finally{
+
+        button.classList.remove(
+          "loading"
+        );
+
+        button.textContent =
+          "Submit Service Request";
+
+      }
+
+    }
+  );
+
+
+
+/* =========================
+LOGOUT
+========================= */
+
+document
+  .getElementById(
+    "logoutBtn"
+  )
+  .addEventListener(
+    "click",
+    async function(){
+
+      try{
+
+        await signOut(
+          auth
+        );
+
+      }
+
+      catch(error){
+
+        console.error(error);
+
+        showMessage(
+          document.getElementById(
+            "dashboardMessage"
+          ),
+          firebaseError(error),
+          "error"
+        );
+
+      }
+
+    }
+  );
+
+
+/* =========================
+START
+========================= */
+
+showScreen(
+  loginScreen
+);
 
 </script>
 
 </body>
-</html>
+    </html>

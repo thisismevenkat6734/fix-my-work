@@ -2,274 +2,435 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#4285F4">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#4285F4"
+>
 
 <title>Fix My Work</title>
 
 <style>
 
-*{
-    box-sizing:border-box;
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
 }
 
-body{
-    margin:0;
-    min-height:100vh;
-    padding:20px;
+body {
+    margin: 0;
+    min-height: 100vh;
 
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-    background:#f4f7fb;
-    color:#202124;
+    background:
+        linear-gradient(
+            135deg,
+            #eef4ff,
+            #f7f9fc
+        );
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    color: #202124;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
 }
 
-.card{
-    width:100%;
-    max-width:620px;
 
-    background:#ffffff;
+/* =========================
+   CARD
+========================= */
 
-    border-radius:30px;
+.card {
+    width: 100%;
+    max-width: 620px;
 
-    padding:42px 38px;
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 40px 36px;
 
     box-shadow:
-        0 16px 50px rgba(0,0,0,0.10);
+        0 20px 60px
+        rgba(0, 0, 0, 0.10);
 }
 
-.logo{
-    text-align:center;
-    font-size:64px;
-    line-height:1;
 
-    margin-bottom:14px;
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    text-align: center;
+
+    font-size: 64px;
+
+    margin-bottom: 12px;
 }
 
-h1{
-    text-align:center;
 
-    margin:0;
+/* =========================
+   HEADINGS
+========================= */
 
-    font-size:40px;
-    font-weight:800;
+h1 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 40px;
+
+    font-weight: 800;
 }
 
-.subtitle{
-    text-align:center;
+.subtitle {
+    text-align: center;
 
-    color:#6b7280;
+    color: #6b7280;
 
-    font-size:19px;
+    font-size: 19px;
 
-    margin:10px 0 34px;
+    margin-top: 10px;
+
+    margin-bottom: 35px;
 }
 
-label{
-    display:block;
 
-    font-size:18px;
-    font-weight:700;
+/* =========================
+   FORM
+========================= */
 
-    margin-bottom:9px;
+label {
+    display: block;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    margin-bottom: 9px;
 }
 
-input{
-    width:100%;
+input {
+    width: 100%;
 
-    height:62px;
+    height: 60px;
 
-    border:1px solid #d8dde6;
+    border: 1px solid #d8dde6;
 
-    border-radius:15px;
+    border-radius: 14px;
 
-    padding:0 17px;
+    outline: none;
 
-    font-size:19px;
+    padding:
+        0 16px;
 
-    outline:none;
+    font-size: 17px;
 
-    margin-bottom:16px;
+    margin-bottom: 16px;
+
+    background: white;
 }
 
-input:focus{
-    border-color:#4285f4;
+input:focus {
+    border-color: #4285f4;
 
     box-shadow:
-        0 0 0 3px rgba(66,133,244,0.12);
+        0 0 0 3px
+        rgba(66, 133, 244, 0.12);
 }
 
-button{
-    width:100%;
 
-    height:62px;
+/* =========================
+   BUTTONS
+========================= */
 
-    border:0;
+button {
+    width: 100%;
 
-    border-radius:15px;
+    height: 60px;
 
-    background:#4285f4;
+    border: none;
 
-    color:#ffffff;
+    border-radius: 14px;
 
-    font-size:19px;
+    background: #4285f4;
 
-    font-weight:700;
+    color: white;
 
-    cursor:pointer;
+    font-size: 18px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s,
+        opacity 0.2s;
 }
 
-button:disabled{
-    opacity:0.65;
-
-    cursor:not-allowed;
+button:active {
+    transform: scale(0.99);
 }
 
-.secondary{
-    margin-top:12px;
+button:disabled {
+    opacity: 0.65;
 
-    background:#eef3fb;
-
-    color:#2459a6;
+    cursor: not-allowed;
 }
 
-.hidden{
-    display:none !important;
+.secondary-button {
+    background: #edf3ff;
+
+    color: #2459a6;
+
+    margin-top: 12px;
 }
 
-.message{
-    min-height:25px;
+.danger-button {
+    background: #fce8e6;
 
-    text-align:center;
+    color: #c5221f;
 
-    margin-top:17px;
-
-    font-size:15px;
-
-    line-height:1.45;
+    margin-top: 20px;
 }
 
-.success{
-    color:#188038;
+
+/* =========================
+   LINKS
+========================= */
+
+.link-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 15px;
+
+    margin-bottom: 10px;
 }
 
-.error{
-    color:#d93025;
+.link-button {
+    width: auto;
+
+    height: auto;
+
+    padding: 0;
+
+    background: none;
+
+    color: #4285f4;
+
+    font-size: 14px;
+
+    font-weight: 600;
 }
 
-.info{
-    color:#5f6368;
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    min-height: 25px;
+
+    text-align: center;
+
+    margin-top: 17px;
+
+    font-size: 15px;
+
+    line-height: 1.45;
 }
 
-.small{
-    text-align:center;
-
-    color:#777;
-
-    font-size:13px;
-
-    margin-top:18px;
-
-    line-height:1.5;
+.success {
+    color: #188038;
 }
 
-.home{
-    text-align:center;
+.error {
+    color: #d93025;
 }
 
-.home h2{
-    margin:0 0 10px;
-
-    font-size:30px;
+.info {
+    color: #5f6368;
 }
 
-.home p{
-    color:#666;
 
-    line-height:1.5;
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden {
+    display: none !important;
 }
 
-.service-grid{
-    display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+/* =========================
+   HOME
+========================= */
 
-    gap:12px;
-
-    margin-top:24px;
+.home {
+    text-align: center;
 }
 
-.service{
-    padding:18px 10px;
+.home h2 {
+    margin: 0;
 
-    border:1px solid #e1e5eb;
-
-    border-radius:15px;
-
-    background:#fafbfc;
-
-    font-weight:700;
+    font-size: 30px;
 }
 
-.logout{
-    margin-top:22px;
+.user-email {
+    color: #5f6368;
 
-    background:#eef3fb;
+    margin-top: 10px;
 
-    color:#2459a6;
+    word-break: break-word;
 }
 
-/* Invisible reCAPTCHA container */
-#recaptcha-container{
-    display:none;
+.service-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 28px;
 }
 
-@media(max-width:520px){
+.service {
+    padding: 20px 10px;
 
-    .card{
-        padding:32px 22px;
+    border:
+        1px solid #e1e5eb;
 
-        border-radius:24px;
+    border-radius: 16px;
+
+    background: #fafbfc;
+
+    font-weight: 700;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 100;
+}
+
+.modal-box {
+    width: 100%;
+
+    max-width: 480px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 28px;
+}
+
+.modal-box h2 {
+    margin-top: 0;
+
+    margin-bottom: 10px;
+}
+
+.close-button {
+    background: #f1f3f4;
+
+    color: #333;
+
+    margin-top: 10px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 520px) {
+
+    body {
+        padding: 12px;
     }
 
-    h1{
-        font-size:34px;
+    .card {
+        padding:
+            30px 20px;
+
+        border-radius: 24px;
     }
 
-    .logo{
-        font-size:56px;
+    .logo {
+        font-size: 56px;
     }
 
-    .subtitle{
-        font-size:18px;
+    h1 {
+        font-size: 34px;
     }
 
-    .service-grid{
-        grid-template-columns:1fr 1fr;
+    .subtitle {
+        font-size: 17px;
+    }
+
+    .service-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<main class="card">
+<div class="card">
 
 
-<!-- =====================================================
-     LOGIN SCREEN
-====================================================== -->
+<!-- ==================================================
+     LOGIN / REGISTER VIEW
+================================================== -->
 
-<div id="loginView">
+<div id="authView">
 
 
     <div class="logo">
@@ -287,85 +448,159 @@ button:disabled{
     </div>
 
 
-    <!-- PHONE NUMBER -->
+    <!-- =========================
+         LOGIN FORM
+    ========================== -->
 
-    <label for="phone">
-        Mobile Number
-    </label>
-
-
-    <input
-        id="phone"
-        type="tel"
-        inputmode="numeric"
-        autocomplete="tel"
-        maxlength="10"
-        placeholder="10-digit mobile number"
-    >
+    <div id="loginForm">
 
 
-    <!-- INVISIBLE RECAPTCHA -->
-
-    <div id="recaptcha-container"></div>
-
-
-    <!-- SEND OTP -->
-
-    <button
-        id="sendOtpBtn"
-        type="button"
-    >
-        Send OTP
-    </button>
-
-
-    <!-- =================================================
-         OTP SECTION
-    ================================================== -->
-
-    <div
-        id="otpBox"
-        class="hidden"
-        style="margin-top:22px;"
-    >
-
-
-        <label for="otp">
-            Enter OTP
+        <label for="loginEmail">
+            Email Address
         </label>
 
 
         <input
-            id="otp"
-            type="tel"
-            inputmode="numeric"
-            autocomplete="one-time-code"
-            maxlength="6"
-            placeholder="6-digit OTP"
+            id="loginEmail"
+            type="email"
+            autocomplete="email"
+            placeholder="Enter your email"
+        >
+
+
+        <label for="loginPassword">
+            Password
+        </label>
+
+
+        <input
+            id="loginPassword"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Enter your password"
         >
 
 
         <button
-            id="verifyOtpBtn"
+            id="loginBtn"
             type="button"
         >
-            Verify OTP
+            Login
+        </button>
+
+
+        <div class="link-row">
+
+
+            <button
+                id="forgotBtn"
+                type="button"
+                class="link-button"
+            >
+                Forgot Password?
+            </button>
+
+
+            <button
+                id="showRegisterBtn"
+                type="button"
+                class="link-button"
+            >
+                Create Account
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         REGISTER FORM
+    ========================== -->
+
+    <div
+        id="registerForm"
+        class="hidden"
+    >
+
+
+        <label for="registerName">
+            Full Name
+        </label>
+
+
+        <input
+            id="registerName"
+            type="text"
+            autocomplete="name"
+            placeholder="Enter your name"
+        >
+
+
+        <label for="registerEmail">
+            Email Address
+        </label>
+
+
+        <input
+            id="registerEmail"
+            type="email"
+            autocomplete="email"
+            placeholder="Enter your email"
+        >
+
+
+        <label for="registerPassword">
+            Password
+        </label>
+
+
+        <input
+            id="registerPassword"
+            type="password"
+            autocomplete="new-password"
+            placeholder="Minimum 6 characters"
+        >
+
+
+        <label for="confirmPassword">
+            Confirm Password
+        </label>
+
+
+        <input
+            id="confirmPassword"
+            type="password"
+            autocomplete="new-password"
+            placeholder="Re-enter password"
+        >
+
+
+        <button
+            id="registerBtn"
+            type="button"
+        >
+            Create Account
         </button>
 
 
         <button
-            id="changeNumberBtn"
+            id="showLoginBtn"
             type="button"
-            class="secondary"
+            class="secondary-button"
         >
-            Change Number
+            Back to Login
         </button>
 
 
     </div>
 
 
-    <!-- MESSAGE -->
+    <!-- =========================
+         MESSAGE
+    ========================== -->
 
     <div
         id="message"
@@ -374,19 +609,17 @@ button:disabled{
 
 
     <div class="small">
-
-        Your number is used only for secure
-        login verification.
-
+        Secure authentication powered by Firebase
     </div>
 
 
 </div>
 
 
-<!-- =====================================================
-     HOME SCREEN
-====================================================== -->
+
+<!-- ==================================================
+     HOME VIEW
+================================================== -->
 
 <div
     id="homeView"
@@ -404,7 +637,10 @@ button:disabled{
     </h2>
 
 
-    <p id="welcomeText"></p>
+    <p
+        id="userEmail"
+        class="user-email"
+    ></p>
 
 
     <div class="service-grid">
@@ -445,8 +681,8 @@ button:disabled{
 
     <button
         id="logoutBtn"
-        class="logout"
         type="button"
+        class="danger-button"
     >
         Logout
     </button>
@@ -455,20 +691,86 @@ button:disabled{
 </div>
 
 
-</main>
+</div>
 
 
 
-<!-- =====================================================
+<!-- ==================================================
+     FORGOT PASSWORD MODAL
+================================================== -->
+
+<div
+    id="resetModal"
+    class="modal hidden"
+>
+
+
+    <div class="modal-box">
+
+
+        <h2>
+            Reset Password
+        </h2>
+
+
+        <p>
+            Enter your email address. Firebase will
+            send a password reset link.
+        </p>
+
+
+        <label for="resetEmail">
+            Email Address
+        </label>
+
+
+        <input
+            id="resetEmail"
+            type="email"
+            placeholder="Enter your email"
+        >
+
+
+        <button
+            id="sendResetBtn"
+            type="button"
+        >
+            Send Reset Email
+        </button>
+
+
+        <button
+            id="closeResetBtn"
+            type="button"
+            class="close-button"
+        >
+            Close
+        </button>
+
+
+        <div
+            id="resetMessage"
+            class="message"
+        ></div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==================================================
      FIREBASE
-====================================================== -->
+================================================== -->
 
 <script type="module">
 
 
-/* =====================================================
-   FIREBASE SDK
-====================================================== */
+/* ==================================================
+   FIREBASE APP
+================================================== */
 
 import {
     initializeApp
@@ -477,21 +779,33 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
+/* ==================================================
+   FIREBASE AUTH
+================================================== */
+
 import {
     getAuth,
-    RecaptchaVerifier,
-    signInWithPhoneNumber,
+
+    createUserWithEmailAndPassword,
+
+    signInWithEmailAndPassword,
+
+    sendPasswordResetEmail,
+
+    signOut,
+
     onAuthStateChanged,
-    signOut
+
+    updateProfile
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
 
-/* =====================================================
+/* ==================================================
    FIREBASE CONFIG
-====================================================== */
+================================================== */
 
 const firebaseConfig = {
 
@@ -520,30 +834,30 @@ const firebaseConfig = {
 
 
 
-/* =====================================================
-   INITIALIZE FIREBASE
-====================================================== */
+/* ==================================================
+   INITIALIZE
+================================================== */
 
 const app =
-initializeApp(firebaseConfig);
+initializeApp(
+    firebaseConfig
+);
 
 
 const auth =
-getAuth(app);
-
-
-auth.languageCode =
-"en";
+getAuth(
+    app
+);
 
 
 
-/* =====================================================
-   HTML ELEMENTS
-====================================================== */
+/* ==================================================
+   ELEMENTS
+================================================== */
 
-const loginView =
+const authView =
 document.getElementById(
-    "loginView"
+    "authView"
 );
 
 
@@ -553,39 +867,63 @@ document.getElementById(
 );
 
 
-const phoneInput =
+const loginForm =
 document.getElementById(
-    "phone"
+    "loginForm"
 );
 
 
-const otpInput =
+const registerForm =
 document.getElementById(
-    "otp"
+    "registerForm"
 );
 
 
-const otpBox =
+const loginEmail =
 document.getElementById(
-    "otpBox"
+    "loginEmail"
 );
 
 
-const sendOtpBtn =
+const loginPassword =
 document.getElementById(
-    "sendOtpBtn"
+    "loginPassword"
 );
 
 
-const verifyOtpBtn =
+const registerName =
 document.getElementById(
-    "verifyOtpBtn"
+    "registerName"
 );
 
 
-const changeNumberBtn =
+const registerEmail =
 document.getElementById(
-    "changeNumberBtn"
+    "registerEmail"
+);
+
+
+const registerPassword =
+document.getElementById(
+    "registerPassword"
+);
+
+
+const confirmPassword =
+document.getElementById(
+    "confirmPassword"
+);
+
+
+const loginBtn =
+document.getElementById(
+    "loginBtn"
+);
+
+
+const registerBtn =
+document.getElementById(
+    "registerBtn"
 );
 
 
@@ -595,604 +933,721 @@ document.getElementById(
 );
 
 
+const showRegisterBtn =
+document.getElementById(
+    "showRegisterBtn"
+);
+
+
+const showLoginBtn =
+document.getElementById(
+    "showLoginBtn"
+);
+
+
+const forgotBtn =
+document.getElementById(
+    "forgotBtn"
+);
+
+
 const message =
 document.getElementById(
     "message"
 );
 
 
-const welcomeText =
+const userEmail =
 document.getElementById(
-    "welcomeText"
+    "userEmail"
+);
+
+
+const resetModal =
+document.getElementById(
+    "resetModal"
+);
+
+
+const resetEmail =
+document.getElementById(
+    "resetEmail"
+);
+
+
+const sendResetBtn =
+document.getElementById(
+    "sendResetBtn"
+);
+
+
+const closeResetBtn =
+document.getElementById(
+    "closeResetBtn"
+);
+
+
+const resetMessage =
+document.getElementById(
+    "resetMessage"
 );
 
 
 
-/* =====================================================
-   VARIABLES
-====================================================== */
-
-let recaptchaVerifier =
-null;
-
-
-let confirmationResult =
-null;
-
-
-
-/* =====================================================
-   MESSAGE FUNCTION
-====================================================== */
+/* ==================================================
+   MESSAGE
+================================================== */
 
 function showMessage(
     text,
     type = "info"
-){
+) {
 
     message.textContent =
     text;
 
-
     message.className =
     "message " + type;
+}
 
+
+/* ==================================================
+   RESET MESSAGE
+================================================== */
+
+function showResetMessage(
+    text,
+    type = "info"
+) {
+
+    resetMessage.textContent =
+    text;
+
+    resetMessage.className =
+    "message " + type;
 }
 
 
 
-/* =====================================================
-   CREATE INVISIBLE RECAPTCHA
-====================================================== */
+/* ==================================================
+   ERROR HANDLER
+================================================== */
 
-function createRecaptcha(){
+function getErrorMessage(
+    error
+) {
 
-    /* Remove old verifier */
-
-    if(
-        recaptchaVerifier
-    ){
-
-        try{
-
-            recaptchaVerifier.clear();
-
-        }
-        catch(error){
-
-            console.log(
-                "Old reCAPTCHA cleanup:",
-                error
-            );
-
-        }
-
-        recaptchaVerifier =
-        null;
-
-    }
-
-
-    /* Create new invisible verifier */
-
-    recaptchaVerifier =
-    new RecaptchaVerifier(
-
-        auth,
-
-        "recaptcha-container",
-
-        {
-
-            size:
-            "invisible",
-
-
-            callback:
-            function(){
-
-                console.log(
-                    "reCAPTCHA verified"
-                );
-
-            },
-
-
-            "expired-callback":
-            function(){
-
-                showMessage(
-                    "Security verification expired. Please try again.",
-                    "error"
-                );
-
-            }
-
-        }
-
-    );
-
-}
-
-
-
-/* =====================================================
-   INITIAL RECAPTCHA
-====================================================== */
-
-try{
-
-    createRecaptcha();
-
-}
-catch(error){
-
-    console.error(
-        "reCAPTCHA initialization error:",
-        error
+    console.log(
+        "Firebase error:",
+        error.code,
+        error.message
     );
 
 
-    showMessage(
-        "Security verification could not start. Please refresh the page.",
-        "error"
-    );
+    switch (
+        error.code
+    ) {
+
+
+        case
+        "auth/invalid-email":
+
+            return "Please enter a valid email address.";
+
+
+        case
+        "auth/missing-password":
+
+            return "Please enter your password.";
+
+
+        case
+        "auth/weak-password":
+
+            return "Password must contain at least 6 characters.";
+
+
+        case
+        "auth/email-already-in-use":
+
+            return "This email is already registered. Please login.";
+
+
+        case
+        "auth/invalid-credential":
+
+            return "Incorrect email or password.";
+
+
+        case
+        "auth/user-not-found":
+
+            return "No account found with this email.";
+
+
+        case
+        "auth/wrong-password":
+
+            return "Incorrect password.";
+
+
+        case
+        "auth/user-disabled":
+
+            return "This account has been disabled.";
+
+
+        case
+        "auth/too-many-requests":
+
+            return "Too many attempts. Please wait and try again later.";
+
+
+        case
+        "auth/network-request-failed":
+
+            return "Network error. Please check your internet connection.";
+
+
+        case
+        "auth/operation-not-allowed":
+
+            return "Email/Password login is not enabled in Firebase.";
+
+
+        case
+        "auth/invalid-api-key":
+
+            return "Firebase configuration error. Please check the Firebase settings.";
+
+
+        case
+        "auth/quota-exceeded":
+
+            return "Firebase quota exceeded. Please try again later.";
+
+
+        default:
+
+            return (
+                error.message ||
+                "Something went wrong. Please try again."
+            );
+
+    }
 
 }
 
 
 
-/* =====================================================
-   SEND OTP
-====================================================== */
+/* ==================================================
+   SHOW LOGIN
+================================================== */
 
-sendOtpBtn.addEventListener(
+showLoginBtn.addEventListener(
     "click",
-    async function(){
+    function() {
 
-        /* Get number */
-
-        const digits =
-        phoneInput.value
-        .replace(
-            /\D/g,
-            ""
-        );
-
-
-        /* Validate */
-
-        if(
-            digits.length !== 10
-        ){
-
-            showMessage(
-                "Please enter a valid 10-digit mobile number.",
-                "error"
-            );
-
-
-            phoneInput.focus();
-
-            return;
-
-        }
-
-
-        /* Indian number */
-
-        const phoneNumber =
-        "+91" + digits;
-
-
-        /* Button state */
-
-        sendOtpBtn.disabled =
-        true;
-
-
-        sendOtpBtn.textContent =
-        "Sending OTP...";
-
-
-        showMessage(
-            "Please wait...",
-            "info"
-        );
-
-
-        try{
-
-
-            /* Create verifier if needed */
-
-            if(
-                !recaptchaVerifier
-            ){
-
-                createRecaptcha();
-
-            }
-
-
-            /* Firebase OTP */
-
-            confirmationResult =
-            await signInWithPhoneNumber(
-
-                auth,
-
-                phoneNumber,
-
-                recaptchaVerifier
-
-            );
-
-
-            /* Show OTP */
-
-            otpBox.classList.remove(
-                "hidden"
-            );
-
-
-            otpInput.value =
-            "";
-
-
-            otpInput.focus();
-
-
-            showMessage(
-                "OTP sent successfully. Check your SMS.",
-                "success"
-            );
-
-
-        }
-        catch(error){
-
-
-            console.error(
-                "SEND OTP ERROR:",
-                error
-            );
-
-
-            let errorText =
-            "Unable to send OTP.";
-
-
-            if(
-                error.code ===
-                "auth/invalid-phone-number"
-            ){
-
-                errorText =
-                "Invalid mobile number.";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/too-many-requests"
-            ){
-
-                errorText =
-                "Too many attempts. Please wait and try again later.";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/quota-exceeded"
-            ){
-
-                errorText =
-                "Today's SMS quota has been exceeded. Please try again later.";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/captcha-check-failed"
-            ){
-
-                errorText =
-                "Security verification failed. Refresh the page and try again.";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/unauthorized-domain"
-            ){
-
-                errorText =
-                "This website domain is not authorized in Firebase.";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/operation-not-allowed"
-            ){
-
-                errorText =
-                "Phone Authentication is not enabled in Firebase.";
-
-            }
-
-
-            else if(
-                error.message
-            ){
-
-                errorText =
-                error.message;
-
-            }
-
-
-            showMessage(
-                errorText,
-                "error"
-            );
-
-
-            /* Reset reCAPTCHA */
-
-            try{
-
-                createRecaptcha();
-
-            }
-            catch(e){
-
-                console.error(e);
-
-            }
-
-        }
-
-
-        finally{
-
-            sendOtpBtn.disabled =
-            false;
-
-
-            sendOtpBtn.textContent =
-            "Send OTP";
-
-        }
-
-    }
-);
-
-
-
-/* =====================================================
-   VERIFY OTP
-====================================================== */
-
-verifyOtpBtn.addEventListener(
-    "click",
-    async function(){
-
-
-        const otp =
-        otpInput.value.trim();
-
-
-        /* Validate OTP */
-
-        if(
-            !/^\d{6}$/.test(otp)
-        ){
-
-            showMessage(
-                "Please enter the 6-digit OTP.",
-                "error"
-            );
-
-
-            otpInput.focus();
-
-            return;
-
-        }
-
-
-        /* Check confirmation */
-
-        if(
-            !confirmationResult
-        ){
-
-            showMessage(
-                "Please request an OTP first.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        verifyOtpBtn.disabled =
-        true;
-
-
-        verifyOtpBtn.textContent =
-        "Verifying...";
-
-
-        showMessage(
-            "Verifying OTP...",
-            "info"
-        );
-
-
-        try{
-
-
-            /* Confirm OTP */
-
-            await confirmationResult.confirm(
-                otp
-            );
-
-
-            /* onAuthStateChanged will
-               automatically show Home */
-
-        }
-        catch(error){
-
-
-            console.error(
-                "VERIFY OTP ERROR:",
-                error
-            );
-
-
-            let errorText =
-            "OTP verification failed.";
-
-
-            if(
-                error.code ===
-                "auth/invalid-verification-code"
-            ){
-
-                errorText =
-                "Incorrect OTP. Please check and try again.";
-
-            }
-
-
-            else if(
-                error.code ===
-                "auth/code-expired"
-            ){
-
-                errorText =
-                "OTP expired. Please request a new OTP.";
-
-            }
-
-
-            else if(
-                error.message
-            ){
-
-                errorText =
-                error.message;
-
-            }
-
-
-            showMessage(
-                errorText,
-                "error"
-            );
-
-        }
-
-
-        finally{
-
-            verifyOtpBtn.disabled =
-            false;
-
-
-            verifyOtpBtn.textContent =
-            "Verify OTP";
-
-        }
-
-    }
-);
-
-
-
-/* =====================================================
-   CHANGE NUMBER
-====================================================== */
-
-changeNumberBtn.addEventListener(
-    "click",
-    function(){
-
-
-        confirmationResult =
-        null;
-
-
-        otpInput.value =
-        "";
-
-
-        otpBox.classList.add(
+        registerForm.classList.add(
             "hidden"
         );
 
+        loginForm.classList.remove(
+            "hidden"
+        );
 
         showMessage(
             "",
             "info"
         );
 
-
-        try{
-
-            createRecaptcha();
-
-        }
-        catch(error){
-
-            console.error(
-                error
-            );
-
-        }
+    }
+);
 
 
-        phoneInput.focus();
+
+/* ==================================================
+   SHOW REGISTER
+================================================== */
+
+showRegisterBtn.addEventListener(
+    "click",
+    function() {
+
+        loginForm.classList.add(
+            "hidden"
+        );
+
+        registerForm.classList.remove(
+            "hidden"
+        );
+
+        showMessage(
+            "",
+            "info"
+        );
 
     }
 );
 
 
 
-/* =====================================================
+/* ==================================================
+   CREATE ACCOUNT
+================================================== */
+
+registerBtn.addEventListener(
+    "click",
+    async function() {
+
+
+        const name =
+        registerName.value.trim();
+
+
+        const email =
+        registerEmail.value.trim();
+
+
+        const password =
+        registerPassword.value;
+
+
+        const confirm =
+        confirmPassword.value;
+
+
+        /* Name */
+
+        if (
+            name.length < 2
+        ) {
+
+            showMessage(
+                "Please enter your full name.",
+                "error"
+            );
+
+            registerName.focus();
+
+            return;
+        }
+
+
+        /* Email */
+
+        if (
+            !email ||
+            !email.includes("@")
+        ) {
+
+            showMessage(
+                "Please enter a valid email address.",
+                "error"
+            );
+
+            registerEmail.focus();
+
+            return;
+        }
+
+
+        /* Password */
+
+        if (
+            password.length < 6
+        ) {
+
+            showMessage(
+                "Password must contain at least 6 characters.",
+                "error"
+            );
+
+            registerPassword.focus();
+
+            return;
+        }
+
+
+        /* Confirm */
+
+        if (
+            password !== confirm
+        ) {
+
+            showMessage(
+                "Passwords do not match.",
+                "error"
+            );
+
+            confirmPassword.focus();
+
+            return;
+        }
+
+
+        registerBtn.disabled =
+        true;
+
+
+        registerBtn.textContent =
+        "Creating Account...";
+
+
+        showMessage(
+            "Creating your account...",
+            "info"
+        );
+
+
+        try {
+
+
+            const result =
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+
+            /* Save display name */
+
+            await updateProfile(
+                result.user,
+                {
+                    displayName:
+                    name
+                }
+            );
+
+
+            showMessage(
+                "Account created successfully!",
+                "success"
+            );
+
+
+            /* Auth observer will
+               automatically show home */
+
+        }
+        catch (error) {
+
+
+            showMessage(
+                getErrorMessage(error),
+                "error"
+            );
+
+        }
+        finally {
+
+
+            registerBtn.disabled =
+            false;
+
+
+            registerBtn.textContent =
+            "Create Account";
+
+        }
+
+    }
+);
+
+
+
+/* ==================================================
+   LOGIN
+================================================== */
+
+loginBtn.addEventListener(
+    "click",
+    async function() {
+
+
+        const email =
+        loginEmail.value.trim();
+
+
+        const password =
+        loginPassword.value;
+
+
+        if (
+            !email
+        ) {
+
+            showMessage(
+                "Please enter your email address.",
+                "error"
+            );
+
+            loginEmail.focus();
+
+            return;
+        }
+
+
+        if (
+            !password
+        ) {
+
+            showMessage(
+                "Please enter your password.",
+                "error"
+            );
+
+            loginPassword.focus();
+
+            return;
+        }
+
+
+        loginBtn.disabled =
+        true;
+
+
+        loginBtn.textContent =
+        "Logging in...";
+
+
+        showMessage(
+            "Signing you in...",
+            "info"
+        );
+
+
+        try {
+
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+
+            showMessage(
+                "Login successful!",
+                "success"
+            );
+
+
+        }
+        catch (error) {
+
+
+            showMessage(
+                getErrorMessage(error),
+                "error"
+            );
+
+        }
+        finally {
+
+
+            loginBtn.disabled =
+            false;
+
+
+            loginBtn.textContent =
+            "Login";
+
+        }
+
+    }
+);
+
+
+
+/* ==================================================
+   FORGOT PASSWORD
+================================================== */
+
+forgotBtn.addEventListener(
+    "click",
+    function() {
+
+
+        resetEmail.value =
+        loginEmail.value.trim();
+
+
+        showResetMessage(
+            "",
+            "info"
+        );
+
+
+        resetModal.classList.remove(
+            "hidden"
+        );
+
+
+        setTimeout(
+            function() {
+
+                resetEmail.focus();
+
+            },
+            100
+        );
+
+    }
+);
+
+
+
+/* ==================================================
+   CLOSE RESET
+================================================== */
+
+closeResetBtn.addEventListener(
+    "click",
+    function() {
+
+        resetModal.classList.add(
+            "hidden"
+        );
+
+    }
+);
+
+
+
+/* ==================================================
+   RESET PASSWORD EMAIL
+================================================== */
+
+sendResetBtn.addEventListener(
+    "click",
+    async function() {
+
+
+        const email =
+        resetEmail.value.trim();
+
+
+        if (
+            !email ||
+            !email.includes("@")
+        ) {
+
+            showResetMessage(
+                "Please enter a valid email address.",
+                "error"
+            );
+
+            resetEmail.focus();
+
+            return;
+        }
+
+
+        sendResetBtn.disabled =
+        true;
+
+
+        sendResetBtn.textContent =
+        "Sending...";
+
+
+        showResetMessage(
+            "Sending password reset email...",
+            "info"
+        );
+
+
+        try {
+
+
+            await sendPasswordResetEmail(
+                auth,
+                email
+            );
+
+
+            showResetMessage(
+                "Password reset email sent. Check your inbox.",
+                "success"
+            );
+
+
+        }
+        catch (error) {
+
+
+            showResetMessage(
+                getErrorMessage(error),
+                "error"
+            );
+
+        }
+        finally {
+
+
+            sendResetBtn.disabled =
+            false;
+
+
+            sendResetBtn.textContent =
+            "Send Reset Email";
+
+        }
+
+    }
+);
+
+
+
+/* ==================================================
    LOGOUT
-====================================================== */
+================================================== */
 
 logoutBtn.addEventListener(
     "click",
-    async function(){
+    async function() {
 
-        try{
+
+        logoutBtn.disabled =
+        true;
+
+
+        logoutBtn.textContent =
+        "Logging out...";
+
+
+        try {
+
 
             await signOut(
                 auth
             );
 
+
         }
-        catch(error){
+        catch (error) {
+
 
             console.error(
                 "Logout error:",
                 error
             );
 
+
+        }
+        finally {
+
+
+            logoutBtn.disabled =
+            false;
+
+
+            logoutBtn.textContent =
+            "Logout";
+
         }
 
     }
@@ -1200,21 +1655,23 @@ logoutBtn.addEventListener(
 
 
 
-/* =====================================================
+/* ==================================================
    AUTH STATE
-====================================================== */
+================================================== */
 
 onAuthStateChanged(
     auth,
-    function(user){
+    function(user) {
 
 
-        if(user){
+        if (
+            user
+        ) {
 
 
-            /* Hide login */
+            /* Hide auth */
 
-            loginView.classList.add(
+            authView.classList.add(
                 "hidden"
             );
 
@@ -1226,23 +1683,96 @@ onAuthStateChanged(
             );
 
 
-            /* User information */
+            /* User email */
 
-            welcomeText.textContent =
-            "Logged in with " +
-            (
-                user.phoneNumber ||
-                "your mobile number"
-            ) +
-            ". Choose a service to continue.";
+            userEmail.textContent =
+            user.email ||
+            "";
 
 
         }
-        else{
+        else {
 
 
-            /* Show login */
+            /* Show auth */
 
-            loginView.classList.remove(
+            authView.classList.remove(
                 "hidden"
-            
+            );
+
+
+            /* Hide home */
+
+            homeView.classList.add(
+                "hidden"
+            );
+
+        }
+
+    }
+);
+
+
+
+/* ==================================================
+   ENTER KEY SUPPORT
+================================================== */
+
+loginPassword.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            loginBtn.click();
+
+        }
+
+    }
+);
+
+
+confirmPassword.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            registerBtn.click();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   CLOSE MODAL BY BACKGROUND
+================================================== */
+
+resetModal.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === resetModal
+        ) {
+
+            resetModal.classList.add(
+                "hidden"
+            );
+
+        }
+
+    }
+);
+
+
+</script>
+
+</body>
+</html>
